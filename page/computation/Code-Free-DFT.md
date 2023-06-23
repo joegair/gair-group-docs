@@ -44,12 +44,6 @@ The conformations of alpha-diazo carbonyl compounds have important implications 
 The equilibrium constants (K<sub>eq</sub>) for cis-trans isomerism of diazoacetone and methyl diazoacetate were previously measured by low temperature NMR ([*JACS* **1966**, 950–956](https://pubs.acs.org/doi/10.1021/ja00957a017)). Notably, the ketone is predominantly  cis whereas the ester is a nearly equal mixture of cis and trans. If we did not have these experimental results, could we have predicted this with DFT?
 
 
-
-
-#{% include image.html file="computation/code-free-dft/freq.gif" alt="frequency" max-width=800 %}
-
-
-
 The short answer is, yes. The tables below give the experimental and computed free energies for cis-to-trans isomerism of diazoacetone and methyl diazoacetate, as well as the values of K<sub>eq</sub> at -40 &deg;C (experimental conditions) and the portion of each isomer at equilibrium. 
 
 Density functional theory acurately predicts that the cis isomer is preferred for the ketone (diazoacetone) whereas isomerism is approximately thermoneutral for the ester (methyl diazoacetate).
@@ -131,6 +125,43 @@ It is often helpful to use tight SCF convergence criteria when performing a freq
 
 
 ----------------------------------------------------------------
+
+<!-- Tab links -->
+<div class="tab card">
+  <button class="tablinks tab-1-1" onclick="openTabId(event, 'struc', 'tab-1-1')">{{ site.data.icons.codefile }}  <code>struc.xyz</code></button>
+</div>
+<div id="struc" class="tabcontent tab-1-1" style="font-size:10px">
+{% capture struc_xyz %}
+ 20
+
+C     2.081440     0.615100    -0.508430
+C     2.742230     1.824030    -1.200820
+N     4.117790     1.799870    -1.190410
+C     4.943570     2.827040    -1.822060
+C     6.440080     2.569360    -1.637600
+O     7.351600     3.252270    -2.069090
+N     0.610100     0.695090    -0.538780
+O     2.095560     2.724940    -1.739670
+O     6.705220     1.463410    -0.897460
+H     0.303080     1.426060     0.103770
+H     0.338420     1.050680    -1.460480
+C     2.488753    -0.593400    -1.198448
+H     2.416500     0.557400     0.532050
+H     4.614100     1.081980    -0.670550
+H     4.699850     3.794460    -1.373720
+H     4.722890     2.844690    -2.894180
+H     7.687400     1.448620    -0.860340
+H     2.029201    -1.457008    -0.719999
+H     2.170233    -0.542411    -2.238576
+H     3.572730    -0.688405    -1.154998
+{% endcapture %}
+{% include codecell.html content=struc_xyz %}
+</div>
+
+----------------------------------------------------------------
+
+
+
  <!-- Tab links -->
 <div class="tab card">
   <button class="tablinks tab-1-1" onclick="openTabId(event, 'command', 'tab-1-1')" id="defaultOpen">{{ site.data.icons.code }} <code>command</code></button>
@@ -140,13 +171,6 @@ It is often helpful to use tight SCF convergence criteria when performing a freq
 <!-- Tab content -->
 <div id="command" class="tabcontent tab-1-1" style="text-align:justify">
 {% include command.html cmd="crest struc.xyz --gfn2 --gbsa h2o -T 4" %}
-<span markdown="span">
-This is the command that needs to be executed from the command line. 
-`--gfn2` specifies   the usage of the SQM level GFN2-xTB, `--gbsa h2o` implements 
-the GBSA implicit solvation  for water, and `-T 4` requests the usage of 4 CPU threads.
-You can save the terminal output of this command by adding `> crest.out` at the end of the line.
-The output will look something like the one in the `output` tab above.
-</span>
 </div>
 <div id="struc" class="tabcontent tab-1-1" style="font-size:10px">
 {% capture struc_xyz %}
@@ -264,7 +288,8 @@ In the log you will see a note that reads `ketone_c01.out has 0 imaginary harmon
 To manually inspect vibrational modes, navigate in the ChimeraX dropdown menu to Tools > Quantum Chemistry > Visualize Normal Modes. In the resulting popup you can display the vectors of the vibrational mode and animate it. If you animate the vibrational mode, use the Reset Coordinates button in the Visualize Normal Modes popup to ensure that you are displaying the equilibrium geometry.
 
 
-<img src="./images/freq.gif" alt="visualize normal modes" width="800">
+#{% include image.html file="computation/code-free-dft/freq.gif" alt="frequency" max-width=800 %}
+
 
 <details>
 
