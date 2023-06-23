@@ -207,7 +207,7 @@ CREST terminated normally.
 If you only want to run simple calculations on your local machine, you can ignore this section. If you want to start learning how to run more powerful simulations, it is worth previewing the input file in the QM Input Generator by navigating to View > Preview. The resulting input should start like this. 
 
 
-```bash
+````bash
 ! B3LYP Freq Opt def2-SVP CPCM(CH2Cl2) D3BJ TightSCF
 %pal
     nprocs 1
@@ -219,7 +219,7 @@ end
 
 *xyz 0 1
 C     0.242400  -0.772000  -0.000200
-```
+````
 
 Lines starting with `#` are comments and have no impact on the calculation.
 
