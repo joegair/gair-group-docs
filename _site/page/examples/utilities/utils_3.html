@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang="en-US"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><link rel="stylesheet" href="/gair_group_docs/assets/css/just-the-docs-default.css"><link rel="shortcut icon" href="/gair_group_docs/favicon.ico" type="image/x-icon"> <script type="text/javascript" src="/gair_group_docs/assets/js/vendor/lunr.min.js"></script> <script type="text/javascript" src="/gair_group_docs/assets/js/just-the-docs.js"></script><meta name="viewport" content="width=device-width, initial-scale=1"><title>Topology Check | Gair Group Docs</title><meta name="generator" content="Jekyll v4.3.2" /><meta property="og:title" content="Topology Check" /><meta property="og:locale" content="en_US" /><meta name="description" content="Documents for the Gair Group" /><meta property="og:description" content="Documents for the Gair Group" /><link rel="canonical" href="http://localhost:4000/gair_group_docs/page/examples/utilities/utils_3.html" /><meta property="og:url" content="http://localhost:4000/gair_group_docs/page/examples/utilities/utils_3.html" /><meta property="og:site_name" content="Gair Group Docs" /><meta property="og:type" content="website" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="Topology Check" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"WebPage","description":"Documents for the Gair Group","headline":"Topology Check","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/gair_group_docs/assets/images/gair-group-logo.png"}},"url":"http://localhost:4000/gair_group_docs/page/examples/utilities/utils_3.html"}</script><link rel="shortcut icon" href="/gair_group_docs/assets/images/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/gair_group_docs/assets/images/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/gair_group_docs/assets/images/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/gair_group_docs/assets/images/favicon-16x16.png"><link href="/gair_group_docs/assets/css/fontawesome/css/all.css" rel="stylesheet"><link rel="stylesheet" href="/gair_group_docs/assets/css/bootstrap-grid.css"><link rel="stylesheet" href="/gair_group_docs/assets/css/bootstrap-utilities.css"><link rel="stylesheet" href="/gair_group_docs/assets/css/customstyles.css"><body> <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"> <symbol id="svg-link" viewBox="0 0 24 24"><title>Link</title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path> </svg> </symbol> <symbol id="svg-search" viewBox="0 0 24 24"><title>Search</title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"> <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line> </svg> </symbol> <symbol id="svg-menu" viewBox="0 0 24 24"><title>Menu</title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line> </svg> </symbol> <symbol id="svg-arrow-right" viewBox="0 0 24 24"><title>Expand</title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline> </svg> </symbol> <symbol id="svg-doc" viewBox="0 0 24 24"><title>Document</title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline> </svg> </symbol> </svg><div class="side-bar"><div class="site-header"> <a href="http://localhost:4000/gair_group_docs/" class="site-title lh-tight"><div class="site-logo"></div></a> <a href="#" id="menu-button" class="site-button"> <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg> </a></div><nav role="navigation" aria-label="Main" id="site-nav" class="site-nav"><ul class="nav-list"><li class="nav-list-item"><a href="http://localhost:4000/gair_group_docs/" class="nav-list-link">Home</a><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="http://localhost:4000/gair_group_docs/page/computation" class="nav-list-link">Computation</a><ul class="nav-list "><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="http://localhost:4000/gair_group_docs/page/computation/setup.html" class="nav-list-link">Setup ORCA</a><ul class="nav-list"></ul><li class="nav-list-item "><a href="http://localhost:4000/gair_group_docs/page/computation/code-free-dft.html" class="nav-list-link">Code-Free DFT</a><li class="nav-list-item "><a href="http://localhost:4000/gair_group_docs/page/computation/coords.html" class="nav-list-link">File Formats</a></ul><li class="nav-list-item active"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="http://localhost:4000/gair_group_docs/page/examples" class="nav-list-link">Examples and Guides</a><ul class="nav-list "><li class="nav-list-item "><a href="http://localhost:4000/gair_group_docs/page/examples/example_1.html" class="nav-list-link">Example 1</a><li class="nav-list-item "><a href="http://localhost:4000/gair_group_docs/page/examples/example_2.html" class="nav-list-link">Example 2</a><li class="nav-list-item "><a href="http://localhost:4000/gair_group_docs/page/examples/example_3.html" class="nav-list-link">Example 3</a><li class="nav-list-item "><a href="http://localhost:4000/gair_group_docs/page/examples/example_4.html" class="nav-list-link">Example 4</a><li class="nav-list-item "><a href="http://localhost:4000/gair_group_docs/page/examples/example_5.html" class="nav-list-link">Example 5</a><li class="nav-list-item "><a href="http://localhost:4000/gair_group_docs/page/examples/entropy.html" class="nav-list-link">Conformational Entropy</a><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="http://localhost:4000/gair_group_docs/page/examples/publication" class="nav-list-link">Publication Examples</a><ul class="nav-list"><li class="nav-list-item "> <a href="http://localhost:4000/gair_group_docs/page/examples/publication/example_1.html" class="nav-list-link">TS Conformers</a><li class="nav-list-item "> <a href="http://localhost:4000/gair_group_docs/page/examples/publication/example_2.html" class="nav-list-link">Metal-organic Systems</a><li class="nav-list-item "> <a href="http://localhost:4000/gair_group_docs/page/examples/publication/example_3.html" class="nav-list-link">TYR on graphene</a></ul><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="http://localhost:4000/gair_group_docs/page/examples/qcg" class="nav-list-link">QCG Examples</a><ul class="nav-list"><li class="nav-list-item "> <a href="http://localhost:4000/gair_group_docs/page/examples/qcg/example_1.html" class="nav-list-link">QCG Example 1</a><li class="nav-list-item "> <a href="http://localhost:4000/gair_group_docs/page/examples/qcg/example_2.html" class="nav-list-link">QCG Example 2</a><li class="nav-list-item "> <a href="http://localhost:4000/gair_group_docs/page/examples/qcg/example_3.html" class="nav-list-link">QCG Example 3</a><li class="nav-list-item "> <a href="http://localhost:4000/gair_group_docs/page/examples/qcg/example_4.html" class="nav-list-link">QCG Example 4</a><li class="nav-list-item "> <a href="http://localhost:4000/gair_group_docs/page/examples/qcg/example_restart.html" class="nav-list-link">Restarting QCG</a></ul><li class="nav-list-item "><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="http://localhost:4000/gair_group_docs/page/examples/mecp" class="nav-list-link">MECP Calculations</a><ul class="nav-list"><li class="nav-list-item "> <a href="http://localhost:4000/gair_group_docs/page/examples/mecp/mecp_opt.html" class="nav-list-link">MECP Optimization</a><li class="nav-list-item "> <a href="http://localhost:4000/gair_group_docs/page/examples/mecp/mecp_screen.html" class="nav-list-link">MECP Screening</a></ul><li class="nav-list-item active"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="http://localhost:4000/gair_group_docs/page/utilities" class="nav-list-link">Utility Tools</a><ul class="nav-list"><li class="nav-list-item "> <a href="http://localhost:4000/gair_group_docs/page/examples/utilities/utils_1.html" class="nav-list-link">Ensemble Optimization</a><li class="nav-list-item "> <a href="http://localhost:4000/gair_group_docs/page/examples/utilities/utils_2.html" class="nav-list-link">Calculating RMSDs</a><li class="nav-list-item active"> <a href="http://localhost:4000/gair_group_docs/page/examples/utilities/utils_3.html" class="nav-list-link active">Topology Check</a><li class="nav-list-item "> <a href="http://localhost:4000/gair_group_docs/page/examples/utilities/utils_4.html" class="nav-list-link"><code>thermo</code> Calculations</a><li class="nav-list-item "> <a href="http://localhost:4000/gair_group_docs/page/examples/utilities/utils_5.html" class="nav-list-link">Calculate <i>S</i><sub>msRRHO</sub></a><li class="nav-list-item "> <a href="http://localhost:4000/gair_group_docs/page/examples/utilities/utils_6.html" class="nav-list-link">xTB Nanoreactor</a></ul></ul><li class="nav-list-item"><a href="#" class="nav-list-expander"><svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg></a><a href="http://localhost:4000/gair_group_docs/page/about" class="nav-list-link">About</a><ul class="nav-list "><li class="nav-list-item "><a href="http://localhost:4000/gair_group_docs/page/about/contact.html" class="nav-list-link">Contact</a><li class="nav-list-item "><a href="http://localhost:4000/gair_group_docs/page/about/about-docs.html" class="nav-list-link">About the Documentation</a></ul></ul></nav><footer class="site-footer"> This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.</footer></div><div class="main" id="top"><div id="main-header" class="main-header"><div class="search"><div class="search-input-wrap"> <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Gair Group Docs" aria-label="Search Gair Group Docs" autocomplete="off"> <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label></div><div id="search-results" class="search-results"></div></div><nav aria-label="Auxiliary" class="aux-nav"><ul class="aux-nav-list"><li class="aux-nav-list-item"> <a href="//github.com/gair-group" class="site-button" > <i class="fa-brands fa-github"></i>&nbsp;Gair Group Docs on GitHub </a></ul></nav></div><div id="main-content-wrap" class="main-content-wrap"><nav aria-label="Breadcrumb" class="breadcrumb-nav"><ol class="breadcrumb-nav-list"><li class="breadcrumb-nav-list-item"><a href="http://localhost:4000/gair_group_docs/page/examples">Examples and Guides</a><li class="breadcrumb-nav-list-item"><a href="http://localhost:4000/gair_group_docs/page/utilities">Utility Tools</a><li class="breadcrumb-nav-list-item"><span>Topology Check</span></ol></nav><div id="main-content" class="main-content" role="main"><h1 class="no_toc" id="topology-check"> <a href="#topology-check" class="anchor-heading" aria-labelledby="topology-check"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Topology Check</h1><p class="fs-6 fw-300">Checking the molecular topology with CREST.</p><hr /><h2 id="checking-molecular-topologies"> <a href="#checking-molecular-topologies" class="anchor-heading" aria-labelledby="checking-molecular-topologies"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Checking molecular topologies</h2><p class="text-justify">The molecular topology used by CREST, and in particular used for the structure sorting in CREGEN, can be printed with the command <code class="language-plaintext highlighter-rouge">--testtopo &lt;FILE&gt;</code>. Taking the caffeine molecule as an example</p><div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>crest <span class="nt">--testtopo</span> caffeine.xyz
+</code></pre></div></div><figure><img class="docimage" src="/gair_group_docs/assets/images/caffeine.png" alt="caffeine" style="max-width: 400px" oncontextmenu="return false;" /></figure><p>will provide the output</p><div class="language-plaintext highlighter-rouge highlight-rel"><div class="highlight highlight-rel" style="font-size:10px"><pre id="codecell">
+       ==============================================
+       |                                            |
+       |                 C R E S T                  |
+       |                                            |
+       |  Conformer-Rotamer Ensemble Sampling Tool  |
+       |          based on the GFN methods          |
+       |             P.Pracht, S.Grimme             |
+       |          Universitaet Bonn, MCTC           |
+       ==============================================
+       Version 2.12,   Thu 19. Mai 16:32:32 CEST 2022
+  Using the xTB program. Compatible with xTB version 6.4.0
+ 
+   Cite work conducted with this code as
+
+   • P.Pracht, F.Bohle, S.Grimme, PCCP, 2020, 22, 7169-7192.
+   • S.Grimme, JCTC, 2019, 15, 2847-2862.
+
+   and for works involving QCG as
+
+   • S.Spicher, C.Plett, P.Pracht, A.Hansen, S.Grimme,
+     JCTC, 2022, 18 (5), 3174-3189.
+ 
+   with help from:
+   C.Bannwarth, F.Bohle, S.Ehlert, S.Grimme,
+   C.Plett, P.Pracht, S.Spicher
+ 
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+ Command line input:
+ &gt; crest --testtopo caffeine.xyz
+
+ 
+ -----------------
+ TOPOLOGY ANALYSIS
+ -----------------
+ Coordinates (Bohr):
+          0.888171196170          4.854328018555          0.001133835570     O 
+         -5.909362016047         -0.838282431108         -0.000566917785     O 
+         -1.830388554489         -2.480265308453          0.000000000000     N 
+          4.191790100731          0.266829304041         -0.000566917785     N 
+         -2.546783661868          2.040337107456         -0.000188972595     N 
+          2.668104067813         -3.660777108979          0.000377945190     N 
+          1.621195891902          0.489816966058         -0.001511780759     C 
+          0.736426202441         -1.939614714359         -0.000755890380     C 
+          0.058014586643          2.687190299901         -0.001133835570     C 
+         -3.602006631955         -0.471486624350         -0.000755890380     C 
+          4.730361996281         -2.267293193967          0.000566917785     C 
+         -2.697772765217         -5.094701159305          0.001511780759     C 
+          6.033139065726          2.279198467447          0.000566917785     C 
+         -4.340511532941          4.134909349657          0.001322808165     C 
+          6.644843355514         -2.983310356156          0.001511780759     H 
+         -1.974952589611         -6.042020777688         -1.688848080887     H 
+         -4.759463775900         -5.214887729681          0.002078698544     H 
+         -1.974196699231         -6.040131051739          1.692627532786     H 
+          7.935337206289          1.474175213047          0.000377945190     H 
+          5.757617022319          3.418892187469         -1.699241573608     H 
+          5.757239077129          3.417191434114          1.701509244747     H 
+         -3.417947324494          5.981171602121         -0.000566917785     H 
+         -5.541054428529          3.973526753587          1.678265615571     H 
+         -5.545589770808          3.972392918018         -1.672218492533     H 
+ 
+             CN         neighbours
+ O (1)       1.0619     9 
+ O (2)       1.0561     10 
+ N (3)       3.1322     8 10 12 
+ N (4)       3.2817     7 11 13 
+ N (5)       3.1440     9 10 14 
+ N (6)       2.2107     8 11 
+ C (7)       3.4651     4 8 9 
+ C (8)       3.6067     3 6 7 
+ C (9)       3.1545     1 5 7 
+ C (10)      3.1799     2 3 5 
+ C (11)      3.5116     4 6 15 
+ C (12)      4.0689     3 16 17 18 
+ C (13)      4.0547     4 19 20 21 
+ C (14)      4.0789     5 22 23 24 
+ H (15)      1.0011     11 
+ H (16)      0.9979     12 
+ H (17)      0.9981     12 
+ H (18)      0.9979     12 
+ H (19)      0.9982     13 
+ H (20)      0.9985     13 
+ H (21)      0.9985     13 
+ H (22)      0.9981     14 
+ H (23)      0.9980     14 
+ H (24)      0.9980     14 
+ 
+ Number of fragments in the system:  1
+ 
+ Total number of rings in the system: 2
+
+ ring size: 6
+           3           5           7           8           9          10
+ ring size: 5
+           4           6           7           8          11
+
+ Total number of rings in the system: 2
+</pre></div><button class="copybtn btn fa-solid fa-copy" style="font-size:12px" onclick="copyCode(event)"></button></div><hr><footer><p><a href="#top" id="back-to-top">Back to top <i class='fa-solid fa-circle-up'></i></a></p><p class="text-small text-grey-dk-100 mb-0">Copyright &copy; 2022-2023 Joe Gair.</p><div class="d-flex mt-2"></div></footer></div></div><div class="search-overlay"></div></div><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
