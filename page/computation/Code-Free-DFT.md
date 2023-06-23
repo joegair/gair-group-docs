@@ -200,14 +200,13 @@ CREST terminated normally.
 
 
 
+
 <details>
+  <summary>Optional: preview the input file.</summary>
+  
+  <p>If you only want to run simple calculations on your local machine, you can ignore this section. If you want to start learning how to run more powerful simulations, it is worth previewing the input file in the QM Input Generator by navigating to View > Preview. The resulting input should start like this.</p>
 
-<summary>Optional: preview the input file.</summary>
-
-If you only want to run simple calculations on your local machine, you can ignore this section. If you want to start learning how to run more powerful simulations, it is worth previewing the input file in the QM Input Generator by navigating to View > Preview. The resulting input should start like this. 
-
-
-````bash
+  <pre><code class="language-bash">
 ! B3LYP Freq Opt def2-SVP CPCM(CH2Cl2) D3BJ TightSCF
 %pal
     nprocs 1
@@ -219,13 +218,13 @@ end
 
 *xyz 0 1
 C     0.242400  -0.772000  -0.000200
-````
+  </code></pre>
 
-Lines starting with `#` are comments and have no impact on the calculation.
+  <p>Lines starting with <code>#</code> are comments and have no impact on the calculation.</p>
 
-The line starting with `!` is the header an contains most of the essential information for this job. The order of keywords in the header is not important.
+  <p>The line starting with <code>!</code> is the header and contains most of the essential information for this job. The order of keywords in the header is not important.</p>
 
-The sections starting with `%` and ending with `end` are blocks. These are important for controlling more specific calculations, but we can essentially ignore them for now.
+  <p>The sections starting with <code>%</code> and ending with <code>end</code> are blocks. These are important for controlling more specific calculations, but we can essentially ignore them for now.</p>
 
 </details>
 
