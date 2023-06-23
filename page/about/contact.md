@@ -13,11 +13,7 @@ permalink: /page/about/contact.html
 
 ---
 
+You can reach me at [joegair@msu.edu {{ site.data.icons.mail }} ](mailto:joegair@msu.edu)
 
-- If you encounter any bugs or have technical questions, please first check the exisiting issues or open up a new issue on the respective [GitHub repository {{ site.data.icons.github }}](https://github.com/crest-lab)
-
-- If you have questions about the theory, and in particular the GFN-xTB methods, benchmark sets, or free energy computations, feel free to contact [xtb@thch.uni-bonn.de {{ site.data.icons.mail }}](mailto:xtb@thch.uni-bonn.de)
-
-- For all other requests [get in contact directly {{ site.data.icons.mail }}](mailto:pp555@cam.ac.uk)
 
 
