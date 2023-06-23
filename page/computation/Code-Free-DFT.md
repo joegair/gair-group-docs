@@ -18,9 +18,9 @@ This page contains a guide to running density functional theory calculations on 
 {: .fs-6 .fw-300 }
 
 All of the input and output files for the calculations in this tutorial can be found 
-[here](/assets/images/test.txt).
+[here](https://github.com/joegair/gair-group-docs/tree/main/assets/data/computation/code-free-dft/ester_cis.inp).
 
-This is a [directory](/assets/images/).
+This is a [directory](https://github.com/joegair/gair-group-docs/tree/main/assets/data/computation/code-free-dft/).
 
 The files are provided so that so that you can play around with visualization and analysis before running your own calculations.
 {: .fs-6 .fw-300 }
