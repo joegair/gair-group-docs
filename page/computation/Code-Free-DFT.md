@@ -36,7 +36,7 @@ The files are provided so that so that you can play around with visualization an
 
 
 
-## Which Conformer is Preferred?
+## **Which Conformer is Preferred?**
 
 The conformations of alpha-diazo carbonyl compounds have important implications for their reactivity. In some systems it has been demonstrated that the cis isomer undergoes a concerted Wolff rearragnement upon nitrogen extrusion, whereas the trans isomer yields an intermediate carbene which can engage in intermolecular chemistry. Therefore, before designing a reaction to proceed through the intermediacy of an alpha-carbonyl carbene, one might seek to characterize the distribution of cis and trans isomers of the diazo precursor at equilibrium. 
 
@@ -78,7 +78,7 @@ From the ChimeraX GUI, go to the dropdown menu and select Tools > Structure Edit
 
 One can open stuctures directly from SMILES strings. This is especially convenient if you've already drawn a complicated molecule in ChemDraw. For example, if you had already drawn Taxol in ChemDraw, you could select the structure and navigate to Edit > Copy As > SMILES. Then paste the copied SMILES string into the ChimeraX prompt.
 
-`open smiles:[H][C@@]12C[C@@H]([C@]3(C([C@@H](C4=C([C@@H](OC([C@@H]([C@H](C5=CC=CC=C5)NC(C6=CC=CC=C6)=O)O)=O)C[C@@]([C@H]([C@@]3([C@]1(OC(C)=O)CO2)[H])OC(C7=CC=CC=C7)=O)(C4(C)C)O)C)OC(C)=O)=O)C)O`
+```open smiles:[H][C@@]12C[C@@H]([C@]3(C([C@@H](C4=C([C@@H](OC([C@@H]([C@H](C5=CC=CC=C5)NC(C6=CC=CC=C6)=O)O)=O)C[C@@]([C@H]([C@@]3([C@]1(OC(C)=O)CO2)[H])OC(C7=CC=CC=C7)=O)(C4(C)C)O)C)OC(C)=O)=O)C)O```
 
 To generate...
 
@@ -136,8 +136,7 @@ It is often helpful to use tight SCF convergence criteria when performing a freq
 If you only want to run simple calculations on your local machine, you can ignore this section. If you want to start learning how to run more powerful simulations, it is worth previewing the input file in the QM Input Generator by navigating to View > Preview. The resulting input should start like this. 
 
 
-```
-#http://www.ichemlabs.com
+```bash
 ! B3LYP Freq Opt def2-SVP CPCM(CH2Cl2) D3BJ TightSCF
 %pal
     nprocs 1
@@ -228,6 +227,7 @@ In order to visualize molecular orbitals in a later tutorial, an additional keyw
 To give a sense for the modularity of ORCA input files, inputs that start with the following run identical jobs.
 
 input 1
+
 ```
 #ketone_c01
 ! B3LYP TightSCF def2-TZVP CPCM(CH2Cl2) D3BJ printBasis
@@ -241,6 +241,7 @@ end
 ```
 
 input2
+
 ```
 ! b3lyp d3bj def2-tzvp tightscf cpcm(CH2Cl2) printBasis
 %MaxCore 1000
