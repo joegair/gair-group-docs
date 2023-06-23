@@ -18,7 +18,9 @@ This page contains a guide to running density functional theory calculations on 
 {: .fs-6 .fw-300 }
 
 All of the input and output files for the calculations in this tutorial can be found 
-[here](/gair-group-docs/assets/images/test.txt)
+[here](/assets/images/test.txt)
+
+[dir](/assets/images/)
 
 . The files are provided so that so that you can play around with visualization and analysis before running your own calculations.
 {: .fs-6 .fw-300 }
