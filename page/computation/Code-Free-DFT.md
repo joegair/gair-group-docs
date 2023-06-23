@@ -17,7 +17,7 @@ permalink: /page/computation/code-free-dft.html
 This page contains a guide to running density functional theory calculations on your personal machine without using a command-line prompt. The goal is to provide a low-barrier entry point to DFT calculations and to illustrate how straightforward calculations can be used to answer questions of interest to synthetic chemists. 
 {: .fs-6 .fw-300 }
 
-All of the input and output files for the calculations in this tutorial can be found [here](/assets/images/caffeine.png)
+All of the input and output files for the calculations in this tutorial can be found [here]([{{ baseurl }}/assets/images/test.txt)
 
 . The files are provided so that so that you can play around with visualization and analysis before running your own calculations.
 {: .fs-6 .fw-300 }
