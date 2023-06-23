@@ -119,7 +119,7 @@ Here we'll opt for a balanced, modern basis set, def2-svp.
 
 **Additional Options**
 
-It is often helpful to use tight SCF convergence criteria when performing a frequency calculation in order to mininimize numerical noise that can lead to spurious imaginary frequencies. To do so, type 'TightSCF' in the 'keyword' box and click 'add'
+It is often helpful to use tight SCF convergence criteria when performing a frequency calculation in order to mininimize numerical noise that can lead to spurious imaginary frequencies. To do so, type 'TightSCF' in the 'keyword' box and click 'add'.
 
 
 
@@ -128,9 +128,9 @@ It is often helpful to use tight SCF convergence criteria when performing a freq
 
 <!-- Tab links -->
 <div class="tab card">
-  <button class="tablinks tab-1-1" onclick="openTabId(event, 'struc', 'tab-1-1')">{{ site.data.icons.codefile }}  <code>struc.xyz</code></button>
+  <button class="tablinks tab-1-1" onclick="openTabId(event, 'ketone_cis.inp', 'tab-1-1')">{{ site.data.icons.codefile }}  <code>ketone_cis.inp</code></button>
 </div>
-<div id="struc" class="tabcontent tab-1-1" style="font-size:10px">
+<div id="ketone_cis.inp" class="tabcontent tab-1-1" style="font-size:10px">
 {% capture struc_xyz %}
 ! b3lyp d3bj def2-svp Freq Opt tightscf cpcm(CH2Cl2)
 %pal
