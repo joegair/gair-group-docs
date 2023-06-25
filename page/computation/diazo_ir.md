@@ -4,8 +4,8 @@ title: Predict Infrared Spectra
 parent: Computation
 nav_order: 3
 toc: false
-summary: "Predicting IR spectra
-permalink: /page/computation/diazo_ir.html
+summary: "Predicting IR spectra"
+permalink: /page/computation/diazo-ir.html
 ---
 
 
@@ -13,23 +13,21 @@ permalink: /page/computation/diazo_ir.html
 {: .no_toc }
 
 
-# **Predicting IR Spectra**
-
-
 This tutorial will demonstrate how to predict IR spectra using density functional theory.
 
-All of the input, output, and analysis files for the calculations in this tutorial can be found [here](./files). The files are provided so that so that you can play around with visualization and analysis before running your own calculations.
-
---------------------------------------------------------------------
-- [**Predicting IR Spectra**](#predicting-ir-spectra)
-- [**What are these peaks?**](#what-are-these-peaks)
-- [**Substitute Substituents in ChimeraX**](#substitute-substituents-in-chimerax)
-- [**Generate Input File and Run Calculation**](#generate-input-file-and-run-calculation)
-- [**Visualize Vibrational Modes**](#visualize-vibrational-modes)
-- [**Visualize IR Spectrum**](#visualize-ir-spectrum)
+All of the input, output, and analysis files for the calculations in this tutorial can be found [here](https://github.com/joegair/gair-group-docs/tree/main/assets/data/computation/diazo-ir/). . The files are provided so that so that you can play around with visualization and analysis before running your own calculations.
+{: .fs-6 .fw-300 }
 
 
----------------------------------------------------------------------
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+
+-----
 
 # **What are these peaks?**
 

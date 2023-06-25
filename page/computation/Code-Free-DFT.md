@@ -18,15 +18,7 @@ This page contains a guide to running density functional theory calculations on 
 {: .fs-6 .fw-300 }
 
 All of the input and output files for the calculations in this tutorial can be found 
-[here](https://github.com/joegair/gair-group-docs/tree/main/assets/data/computation/code-free-dft/ester_cis.inp).
-{: .fs-6 .fw-300 }
-
-
-This is a [directory](https://github.com/joegair/gair-group-docs/tree/main/assets/data/computation/code-free-dft/).
-{: .fs-6 .fw-300 }
-
-
-The files are provided so that so that you can play around with visualization and analysis before running your own calculations.
+[here](https://github.com/joegair/gair-group-docs/tree/main/assets/data/computation/code-free-dft/). The files are provided so that so that you can play around with visualization and analysis before running your own calculations.
 {: .fs-6 .fw-300 }
 
 ## Table of contents
@@ -39,18 +31,25 @@ The files are provided so that so that you can play around with visualization an
 ---
 
 
-
 ## **Which Conformer is Preferred?**
 
-The conformations of alpha-diazo carbonyl compounds have important implications for their reactivity. In some systems it has been demonstrated that the cis isomer undergoes a concerted Wolff rearragnement upon nitrogen extrusion, whereas the trans isomer yields an intermediate carbene which can engage in intermolecular chemistry. Therefore, before designing a reaction to proceed through the intermediacy of an alpha-carbonyl carbene, one might seek to characterize the distribution of cis and trans isomers of the diazo precursor at equilibrium. 
+The conformations of alpha-diazo carbonyl compounds have important implications for their reactivity. In some systems it has been demonstrated that the cis isomer undergoes a concerted Wolff rearragnement upon nitrogen extrusion, whereas the trans isomer yields an intermediate carbene which can engage in intermolecular chemistry. Therefore, before designing a reaction to proceed through the intermediacy of an alpha-carbonyl carbene, one might seek to characterize the distribution of cis and trans isomers of the diazo precursor at equilibrium.
+{: .text-justify }
+
 
 
 The equilibrium constants (K<sub>eq</sub>) for cis-trans isomerism of diazoacetone and methyl diazoacetate were previously measured by low temperature NMR ([*JACS* **1966**, 950–956](https://pubs.acs.org/doi/10.1021/ja00957a017)). Notably, the ketone is predominantly  cis whereas the ester is a nearly equal mixture of cis and trans. If we did not have these experimental results, could we have predicted this with DFT?
+{: .text-justify }
+
 
 
 The short answer is, yes. The tables below give the experimental and computed free energies for cis-to-trans isomerism of diazoacetone and methyl diazoacetate, as well as the values of K<sub>eq</sub> at -40 &deg;C (experimental conditions) and the portion of each isomer at equilibrium. 
+{: .text-justify }
+
 
 Density functional theory acurately predicts that the cis isomer is preferred for the ketone (diazoacetone) whereas isomerism is approximately thermoneutral for the ester (methyl diazoacetate).
+{: .text-justify }
+
 
 |    molecule          | source | &Delta;G | K<sub>eq</sub> | % cis | % trans |
 |:--------------------:|:------:|:---------:|:-------------:|:-----:|:-------:|
@@ -60,12 +59,18 @@ Density functional theory acurately predicts that the cis isomer is preferred fo
 |  methyl diazoacetate | DFT    |  0.1      | 0.8           | 56%   | 44%     |
 
 Follow the tutorial below to see how one arrives at these numbers. (And the tutorials to follow to see the wealth of additional information that one can glean from these calculations)
+{: .text-justify }
+
 
 ## **Generate Input Structures**
 
 The first step in performing any calculation is generating an intial set of xyz coordinates. One of the easiest ways to do this is from the 2D builder tool in ChimeraX after installing the SEQCROW extension. [to-do link-installation-instructions]()
+{: .text-justify }
+
 
 From the ChimeraX GUI, go to the dropdown menu and select Tools > Structure Editing > 2D Builder. Then draw the structure in the editor and select 'open'
+{: .text-justify }
+
 
 <img src="./images/2D_builder.png" alt="2D builder" width="800">
 
@@ -88,34 +93,28 @@ To generate...
 ## **Submit Geometry Optimization from a GUI**
 
 Now that we have rough geometry, we need to optimize the geometry of the molecule. We can setup and submit this calculation directly from the ChimeraX+SEQCROW GUI if we have installed and setup ORCA [to-do link instructions for ORCA setup]() To do so navigate in the ChimeraX dropdown window to Tools > Quantum Chemistry > Build QM Input
+{: .text-justify }
+
 
 <img src="./images/Build_QM_input.png" alt="Build and submit QM input" width="800">
 
-In the screenshot above you can see the first page of the QM input interface. 
+In the screenshot above you can see the first page of the QM input interface. We've selected ORCA as the file type. If multiple structures are open in ChimeraX, you can choose which structure to use as input from the 'structure' dropdown menu. Our stucture from the 2D builder is selected by it's default name 'new'. There are several sub-menus that are relevant to setting up our job. The setup for this calculation is illustrated graphically and described in more detail below.
+{: .text-justify }
 
-We've selected ORCA as the file type. If multiple structures are open in ChimeraX, you can choose which structure to use as input from the 'structure' dropdown menu. Our stucture from the 2D builder is selected by it's default name 'new'.
-
-There are several sub-menus that are relevant to setting up our job. The setup for this calculation is illustrated graphically and described in more detail below.
 
 <img src="./images/QM_in.png" alt="Build and submit QM input" width="800">
 
 **Job Details**
 
-The charge is 0 for our neutral molecule.
+The charge is 0 for our neutral molecule. The multiplicity is 1 because we are looking at the singlet state. We've selected the boxes for geometry optimization and frequency calculation. We include the frequency calculation to ensure that the geometry that results from our optimization is a true local minimum (no negative frequencies). For local calculations 1 processor and 1 GB of memory is adequate. We can also select the 'solvent' sub-menu to set an implicit solvation model. I've opted for the conductor-like polarizable continuum model (CPCM) with dichloromethane (CH2Cl2). No changes are needed in the optimization settings or frequency settings for this job.
+{: .text-justify }
 
-The multiplicity is 1 because we are looking at the singlet state.
-
-We've selected the boxes for geometry optimization and frequency calculation. We include the frequency calculation to ensure that the geometry that results from our optimization is a true local minimum (no negative frequencies).
-
-For local calculations 1 processor and 1 GB of memory is adequate.
-
-We can also select the 'solvent' sub-menu to set an implicit solvation model. I've opted for the conductor-like polarizable continuum model (CPCM) with dichloromethane (CH2Cl2).
-
-No changes are needed in the optimization settings or frequency settings for this job.
 
 **Method**
 
 For simplicity, we'll opt for the most generic method in DFT, B3LYP with Grimme's damped dispersion correction.  Neither the most efficient nor the most accurate method, but totally fine for our purposes.
+{: .text-justify }
+
 
 **Basis Functions**
 
@@ -124,6 +123,7 @@ Here we'll opt for a balanced, modern basis set, def2-svp.
 **Additional Options**
 
 It is often helpful to use tight SCF convergence criteria when performing a frequency calculation in order to mininimize numerical noise that can lead to spurious imaginary frequencies. To do so, type 'TightSCF' in the 'keyword' box and click 'add'.
+{: .text-justify }
 
 
 ----------------------------------------------------------------
@@ -156,93 +156,20 @@ H     2.934100   0.168800   0.510200
 H     2.246600  -1.473000   0.511600
 *
 {% endcapture %}
-{% include codecell.html content=struc_xyz %}
+{% include codecell.html content=ketone_cis.inp %}
 </div>
 
 ----------------------------------------------------------------
 
 
-
- <!-- Tab links -->
-<div class="tab card">
-  <button class="tablinks tab-1-1" onclick="openTabId(event, 'command', 'tab-1-1')" id="defaultOpen">{{ site.data.icons.code }} <code>command</code></button>
-  <button class="tablinks tab-1-1" onclick="openTabId(event, 'struc', 'tab-1-1')">{{ site.data.icons.codefile }}  <code>struc.xyz</code></button>
-  <button class="tablinks tab-1-1" onclick="openTabId(event, 'output', 'tab-1-1')">{{ site.data.icons.checkfile }} <code>output</code></button>
-</div>
-<!-- Tab content -->
-<div id="command" class="tabcontent tab-1-1" style="text-align:justify">
-{% include command.html cmd="crest struc.xyz --gfn2 --gbsa h2o -T 4" %}
-</div>
-<div id="struc" class="tabcontent tab-1-1" style="font-size:10px">
-{% capture struc_xyz %}
-! b3lyp d3bj def2-svp Freq Opt tightscf cpcm(CH2Cl2)
-%pal
-    nprocs 1
-end
-%MaxCore 1000
-%freq
-    Temp    298.15
-end
-
-*xyz 0 1
-C    -0.242400  -0.772000   0.003000
-H    -0.105500  -1.843300   0.002800
-C     0.864100   0.070300   0.000700
-N    -1.395400  -0.289200   0.000300
-N    -2.432100   0.144900  -0.002200
-C     2.254200  -0.511800  -0.002200
-O     0.710000   1.276700   0.001000
-H     2.587100  -0.652200  -1.030600
-H     2.934100   0.168800   0.510200
-H     2.246600  -1.473000   0.511600
-*
-{% endcapture %}
-{% include codecell.html content=struc_xyz %}
-</div>
-<div id="output" class="tabcontent tab-1-1" style="font-size:10px">
-{% capture output_file %}
-    ==============================================
-    |                                            |
-    |                 C R E S T                  |
-    |                                            |
-    |  Conformer-Rotamer Ensemble Sampling Tool  |
-    |          based on the GFN methods          |
-    |             P.Pracht, S.Grimme             |
-    |          Universitaet Bonn, MCTC           |
-    ==============================================
-    Version 2.11, Tue 13. Jul 16:11:14 CEST 2021
-Using the xTB program. Compatible with xTB version 6.4.0
-
-<.......>
-
-CREST terminated normally.
-{% endcapture %}
-{% include codecell.html content=output_file %}
-</div>
-{% include defaulttab.html %}
-----------------------------------------------------------------
 
 
 
 
 <details>
-  <summary>Optional: preview the input file.</summary>
+  <summary>Optional: input stucture.</summary>
   
-  <p>If you only want to run simple calculations on your local machine, you can ignore this section. If you want to start learning how to run more powerful simulations, it is worth previewing the input file in the QM Input Generator by navigating to View > Preview. The resulting input should start like this.</p>
-
-  <pre><code class="language-bash">
-! B3LYP Freq Opt def2-SVP CPCM(CH2Cl2) D3BJ TightSCF
-%pal
-    nprocs 1
-end
-%MaxCore 1000
-%freq
-    Temp    298.15
-end
-
-*xyz 0 1
-C     0.242400  -0.772000  -0.000200
-  </code></pre>
+  <p>If you only want to run simple calculations on your local machine, you can ignore this section. If you want to start learning how to run more powerful simulations, it is worth previewing the input file in the QM Input Generator by navigating to View > Preview. </p>
 
   <p>Lines starting with <code>#</code> are comments and have no impact on the calculation.</p>
 
@@ -315,35 +242,6 @@ In order to visualize molecular orbitals in a later tutorial, an additional keyw
 
 </details>
 
-<details>
-
-<summary>preview input</summary>
-
-To give a sense for the modularity of ORCA input files, inputs that start with the following run identical jobs.
-
-input 1
-
-```
-#ketone_c01
-! B3LYP TightSCF def2-TZVP CPCM(CH2Cl2) D3BJ printBasis
-%pal
-    nprocs 1
-end
-%MaxCore 1000
-%scf
-    print[p_mos] 1
-end
-```
-
-input2
-
-```
-! b3lyp d3bj def2-tzvp tightscf cpcm(CH2Cl2) printBasis
-%MaxCore 1000
-%pal nprocs 1 end
-%scf print[p_mos] 1 end
-```
-</details>
 
 # **Rotate Torsions**
 
@@ -402,4 +300,4 @@ To recap, the figure and tables below summarize the measured and computed thermo
 
 -------------------------------------------------------------------------
 
-All of the input and output files for the calculations in this tutorial can be found [here](./files). 
+All of the input and output files for the calculations in this tutorial can be found [here](https://github.com/joegair/gair-group-docs/tree/main/assets/data/computation/code-free-dft/).. 
