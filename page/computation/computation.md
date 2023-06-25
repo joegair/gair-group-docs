@@ -9,13 +9,8 @@ toc: false
 
 # {{page.title}}
 
-On these pages you will find detailed information about the usage of CREST.
+Instructions for various computational workflows in the Gair Group
 {: .fs-6 .fw-300 }
 
----
 
-## General Usage
-
-
----
 
