@@ -12,14 +12,12 @@ permalink: /page/computation/code-free-dft.html
 # {{page.title}}
 {: .no_toc }
 
-
-
 This page contains a guide to running density functional theory calculations on your personal machine without using a command-line prompt. The goal is to provide a low-barrier entry point to DFT calculations and to illustrate how straightforward calculations can be used to answer questions of interest to synthetic chemists. 
-{: .fs-6 .fw-300 }
+{: .fs-6 .fw-300 .text-justify}
 
 All of the input and output files for the calculations in this tutorial can be found 
 [here](https://github.com/joegair/gair-group-docs/tree/main/assets/data/computation/code-free-dft/). The files are provided so that so that you can play around with visualization and analysis before running your own calculations.
-{: .fs-6 .fw-300 }
+{: .fs-6 .fw-300 .text-justify}
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -31,7 +29,7 @@ All of the input and output files for the calculations in this tutorial can be f
 ---
 
 
-## **Which Conformer is Preferred?**
+## Which Conformer is Preferred?
 
 The conformations of alpha-diazo carbonyl compounds have important implications for their reactivity. In some systems it has been demonstrated that the cis isomer undergoes a concerted Wolff rearragnement upon nitrogen extrusion, whereas the trans isomer yields an intermediate carbene which can engage in intermolecular chemistry. Therefore, before designing a reaction to proceed through the intermediacy of an alpha-carbonyl carbene, one might seek to characterize the distribution of cis and trans isomers of the diazo precursor at equilibrium.
 {: .text-justify }
@@ -74,16 +72,13 @@ From the ChimeraX GUI, go to the dropdown menu and select Tools > Structure Edit
 
 <img src="./images/2D_builder.png" alt="2D builder" width="800">
 
+{% include tip.html content="I know I said code-free, but if you're interested, you can generate coordinates for taxol in one line.  One can open stuctures directly from SMILES strings. This is especially convenient if you've already drawn a complicated molecule in ChemDraw. For example, if you had already drawn Taxol in ChemDraw, you could select the structure and navigate to Edit > Copy As > SMILES. Then paste the copied SMILES string into the ChimeraX prompt.
+
+```open smiles:[H][C@@]12C[C@@H]([C@]3(C([C@@H](C4=C([C@@H](OC([C@@H]([C@H](C5=CC=CC=C5)NC(C6=CC=CC=C6)=O)O)=O)C[C@@]([C@H]([C@@]3([C@]1(OC(C)=O)CO2)[H])OC(C7=CC=CC=C7)=O)(C4(C)C)O)C)OC(C)=O)=O)C)O```" %}
 
 <details>
 
-<summary>Optional: I know I said code-free, but if you're interested, you can generate coordinates for taxol in one line. Expand here.</summary>
-
-One can open stuctures directly from SMILES strings. This is especially convenient if you've already drawn a complicated molecule in ChemDraw. For example, if you had already drawn Taxol in ChemDraw, you could select the structure and navigate to Edit > Copy As > SMILES. Then paste the copied SMILES string into the ChimeraX prompt.
-
-```open smiles:[H][C@@]12C[C@@H]([C@]3(C([C@@H](C4=C([C@@H](OC([C@@H]([C@H](C5=CC=CC=C5)NC(C6=CC=CC=C6)=O)O)=O)C[C@@]([C@H]([C@@]3([C@]1(OC(C)=O)CO2)[H])OC(C7=CC=CC=C7)=O)(C4(C)C)O)C)OC(C)=O)=O)C)O```
-
-To generate...
+<summary>Taxol in one line</summary>
 
 <img src="./images/taxol.png" alt="taxol" width="800">
 
@@ -156,7 +151,7 @@ H     2.934100   0.168800   0.510200
 H     2.246600  -1.473000   0.511600
 *
 {% endcapture %}
-{% include codecell.html content=ketone_cis.inp %}
+{% include codecell.html content=struc_xyz %}
 </div>
 
 ----------------------------------------------------------------
