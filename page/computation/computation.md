@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Computation
-nav_order: 5
+nav_order: 3
 has_children: true
 permalink: /page/computation
 toc: false

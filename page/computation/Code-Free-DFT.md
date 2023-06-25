@@ -122,8 +122,6 @@ Here we'll opt for a balanced, modern basis set, def2-svp.
 It is often helpful to use tight SCF convergence criteria when performing a frequency calculation in order to mininimize numerical noise that can lead to spurious imaginary frequencies. To do so, type 'TightSCF' in the 'keyword' box and click 'add'.
 
 
-
-
 ----------------------------------------------------------------
 
 <!-- Tab links -->
