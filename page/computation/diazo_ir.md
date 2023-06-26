@@ -13,7 +13,7 @@ permalink: /page/computation/diazo-ir.html
 {: .no_toc }
 
 
-This tutorial will demonstrate how to predict IR spectra using density functional theory. 
+This tutorial will demonstrate how to predict IR spectra using density functional theory and compare the predicted spectrum with experimental results. All of the calculations and analysis can be performed directly from the ChimeraX+SEQCROW interface (no code).
 {: .fs-6 .fw-300 .text-jusify}
 
 All of the input, output, and analysis files for the calculations in this tutorial can be found [here](https://github.com/joegair/gair-group-docs/tree/main/assets/data/computation/diazo-ir/). The files are provided so that so that you can play around with visualization and analysis before running your own calculations.
