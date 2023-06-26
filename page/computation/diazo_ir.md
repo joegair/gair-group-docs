@@ -13,12 +13,11 @@ permalink: /page/computation/diazo-ir.html
 {: .no_toc }
 
 
-This tutorial will demonstrate how to predict IR spectra using density functional theory.
-
-All of the input, output, and analysis files for the calculations in this tutorial can be found [here](https://github.com/joegair/gair-group-docs/tree/main/assets/data/computation/diazo-ir/). . The files are provided so that so that you can play around with visualization and analysis before running your own calculations.
+This tutorial will demonstrate how to predict IR spectra using density functional theory. 
 {: .fs-6 .fw-300 .text-jusify}
 
-
+All of the input, output, and analysis files for the calculations in this tutorial can be found [here](https://github.com/joegair/gair-group-docs/tree/main/assets/data/computation/diazo-ir/). The files are provided so that so that you can play around with visualization and analysis before running your own calculations.
+{: .fs-6 .fw-300 .text-jusify}
 
 ## Table of contents
 {: .no_toc .text-delta }

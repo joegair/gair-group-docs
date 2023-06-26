@@ -1,5 +1,5 @@
 # gair-group-docs
-This project contains a documents that are useful to the Gair Group to be hosted on github-pages.
+This project contains the code for [gair-group-docs](https://joegair.github.io/gair-group-docs/), which hosts documents and tutorials of use to the Gair group in the department of chemistry at Michigan State University.
 
 The site was created with [Jekyll](https://jekyllrb.com/) 
 and uses the [Just-the-Docs theme](https://github.com/just-the-docs/just-the-docs) 

@@ -29,7 +29,7 @@ All of the input and output files for the calculations in this tutorial can be f
 ---
 
 
-## Which Conformer is Preferred?
+## Which Conformer is Preferred? ##
 
 The conformations of alpha-diazo carbonyl compounds have important implications for their reactivity. In some systems it has been demonstrated that the cis isomer undergoes a concerted Wolff rearragnement upon nitrogen extrusion, whereas the trans isomer yields an intermediate carbene which can engage in intermolecular chemistry. Therefore, before designing a reaction to proceed through the intermediacy of an alpha-carbonyl carbene, one might seek to characterize the distribution of cis and trans isomers of the diazo precursor at equilibrium.
 {: .text-justify }
