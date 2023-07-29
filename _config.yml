@@ -88,6 +88,7 @@ back_to_top_text: "Back to top <i class='fa-solid fa-circle-up'></i>"
 
 footer_content: >
   Copyright &copy; 2022-2023 Joe Gair.
+  Contact [Joe {{ site.data.icons.mail }} ](mailto:joegair@msu.edu) to report bugs or unexpected behavior.
 
 
 # Footer last edited timestamp
