@@ -81,7 +81,18 @@ From the ChimeraX GUI, go to the dropdown menu and select Tools > Structure Edit
 
 <summary>structure from SMILES</summary>
 
+
 One can open stuctures directly from SMILES strings. This is especially convenient if you've already drawn a complicated molecule in ChemDraw. For example, if you had already drawn Taxol in ChemDraw, you could select the structure and navigate to Edit > Copy As > SMILES. Then paste the copied SMILES string into the ChimeraX prompt.
+
+In the chimeraX command line, try running
+
+```
+open smiles:[H][C@@]12C[C@@H]([C@]3(C([C@@H](C4=C([C@@H](OC([C@@H]([C@H](C5=CC=CC=C5)NC(C6=CC=CC=C6)=O)O)=O)C[C@@]([C@H]([C@@]3([C@]1(OC(C)=O)CO2)[H])OC(C7=CC=CC=C7)=O)(C4(C)C)O)C)OC(C)=O)=O)C)O
+```
+
+To generate the following structure of taxol.
+
+<img src="./images/taxol.png" alt="taxol" width="800">
 
 </details>
 
