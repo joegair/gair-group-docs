@@ -3,7 +3,6 @@ layout: default
 title: Setup ORCA
 parent: Computation
 nav_order: 1
-has_children: false
 has_toc: false
 summary: "Instructions for intalling ORCA and ChimeraX+SEQCROW for local DFT calculations."
 permalink: /page/computation/setup.html
