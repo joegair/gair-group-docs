@@ -15,9 +15,14 @@ permalink: /page/computation/code-free-dft.html
 This page contains a guide to running density functional theory calculations on your personal machine without using a command-line prompt. The goal is to provide a low-barrier entry point to DFT calculations and to illustrate how straightforward calculations can be used to answer questions of interest to synthetic chemists. 
 {: .fs-6 .fw-300 .text-justify}
 
-All of the input and output files for the calculations in this tutorial can be found 
+There are many [resources](https://sites.google.com/site/orcainputlibrary/home) for learning how to perform [ORCA](https://www.orcasoftware.de/tutorials_orca/) calculations. The goal of this tutorial is to provide all the essentials (input, submission, output, visualization, analysis) in one place from a free GUI.
+{: .fs-6 .fw-300 .text-justify}
+
+This tutorial requires local installation of ORCA and ChimeraX (plus the SEQCROW extension to ChimeraX). Instructions for setup can be found [here]({{site.baseurl}}/page/computation/setup.html). All of the input and output files for the calculations in this tutorial can be found 
 [here](https://github.com/joegair/gair-group-docs/tree/main/assets/data/computation/code-free-dft/). The files are provided so that so that you can play around with visualization and analysis before running your own calculations.
 {: .fs-6 .fw-300 .text-justify}
+
+
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -31,15 +36,15 @@ All of the input and output files for the calculations in this tutorial can be f
 
 ## **Which Conformer is Preferred?**
 
-The conformations of alpha-diazo carbonyl compounds have important implications for their reactivity. In some systems it has been demonstrated that the cis isomer undergoes a concerted Wolff rearragnement upon nitrogen extrusion, whereas the trans isomer yields an intermediate carbene which can engage in intermolecular chemistry. Therefore, before designing a reaction to proceed through the intermediacy of an alpha-carbonyl carbene, one might seek to characterize the distribution of cis and trans isomers of the diazo precursor at equilibrium.
+The conformations of alpha-diazo carbonyl compounds have important implications for their reactivity. Upon photolysis, alpha-diazo carbonyl compounds that favor the trans conformation yield carbene trapping products (eg C-H insertion), whereas those that favor ths cis conformation yield predominantly Wolff rearrangement products.([*JACS* **1966**, 950–956](https://pubs.acs.org/doi/10.1021/ja00957a017)). It has been hypothesized that trans and cis conformers react via different pathways: the trans conformer can undergo nitrogen extrusion to generate a carbene intermediate whereas  the cis conformer undergoes a concerted Wolff rearrangement in the excited state without a carbene intermediate.([*JACS* **2008**, 3746-3747](https://pubs.acs.org/doi/full/10.1021/ja711346z)) Therefore, before developing a reaction to proceed through the intermediacy of an alpha-carbonyl carbene, one might seek to characterize the distribution of cis and trans conformers of the diazo precursor at equilibrium.
 {: .text-justify }
 
-
+<img src="./images/20230731_reactivity.png" alt="alt" width="800">
 
 The equilibrium constants (K<sub>eq</sub>) for cis-trans isomerism of diazoacetone and methyl diazoacetate were previously measured by low temperature NMR ([*JACS* **1966**, 950–956](https://pubs.acs.org/doi/10.1021/ja00957a017)). Notably, the ketone is predominantly  cis whereas the ester is a nearly equal mixture of cis and trans. If we did not have these experimental results, could we have predicted this with DFT?
 {: .text-justify }
 
-
+<img src="./images/conformers.png" alt="cis-trans isomerism in alpha-diazo carbonyl isomers" width="800">
 
 The short answer is, yes. The tables below give the experimental and computed free energies for cis-to-trans isomerism of diazoacetone and methyl diazoacetate, as well as the values of K<sub>eq</sub> at -40 &deg;C (experimental conditions) and the portion of each isomer at equilibrium. 
 {: .text-justify }
@@ -62,7 +67,7 @@ Follow the tutorial below to see how one arrives at these numbers. (And the tuto
 
 ## **Generate Input Structures**
 
-The first step in performing any calculation is generating an intial set of xyz coordinates. One of the easiest ways to do this is from the 2D builder tool in ChimeraX after installing the SEQCROW extension. [to-do link-installation-instructions]()
+The first step in performing any calculation is generating an intial set of xyz coordinates. One of the easiest ways to do this is from the 2D builder tool in ChimeraX after installing the SEQCROW extension (see [Setup ORCA]({{site.baseurl}}/page/computation/setup.html).
 {: .text-justify }
 
 
@@ -72,18 +77,19 @@ From the ChimeraX GUI, go to the dropdown menu and select Tools > Structure Edit
 
 <img src="./images/2D_builder.png" alt="2D builder" width="800">
 
-{% include tip.html content="I know I said code-free, but if you're interested, you can generate coordinates for taxol in one line.  One can open stuctures directly from SMILES strings. This is especially convenient if you've already drawn a complicated molecule in ChemDraw. For example, if you had already drawn Taxol in ChemDraw, you could select the structure and navigate to Edit > Copy As > SMILES. Then paste the copied SMILES string into the ChimeraX prompt.
-
-```open smiles:[H][C@@]12C[C@@H]([C@]3(C([C@@H](C4=C([C@@H](OC([C@@H]([C@H](C5=CC=CC=C5)NC(C6=CC=CC=C6)=O)O)=O)C[C@@]([C@H]([C@@]3([C@]1(OC(C)=O)CO2)[H])OC(C7=CC=CC=C7)=O)(C4(C)C)O)C)OC(C)=O)=O)C)O```" %}
-
 <details>
 
-<summary>Taxol in one line</summary>
+<summary>structure from SMILES</summary>
 
 <img src="./images/taxol.png" alt="taxol" width="800">
 
+<p> One can open stuctures directly from SMILES strings. This is especially convenient if you've already drawn a complicated molecule in ChemDraw. For example, if you had already drawn Taxol in ChemDraw, you could select the structure and navigate to Edit > Copy As > SMILES. Then paste the copied SMILES string into the ChimeraX prompt <p>
+
+Try running <code>open smiles:[H][C@@]12C[C@@H]([C@]3(C([C@@H](C4=C([C@@H](OC([C@@H]([C@H](C5=CC=CC=C5)NC(C6=CC=CC=C6)=O)O)=O)C[C@@]([C@H]([C@@]3([C@]1(OC(C)=O)CO2)[H])OC(C7=CC=CC=C7)=O)(C4(C)C)O)C)OC(C)=O)=O)C)O</code> 
 
 </details>
+
+
 
 ## **Submit Geometry Optimization from a GUI**
 
@@ -155,9 +161,6 @@ H     2.246600  -1.473000   0.511600
 </div>
 
 ----------------------------------------------------------------
-
-
-
 
 
 
