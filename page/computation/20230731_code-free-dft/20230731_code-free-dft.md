@@ -41,8 +41,6 @@ The conformations of alpha-diazo carbonyl compounds have important implications 
 
 {% include image.html file="20230731_reactivity.png" alt="alt" max-width=800 %}
 
-<img src="./images/20230731_reactivity.png" alt="alt" width="800">
-
 The equilibrium constants (K<sub>eq</sub>) for cis-trans isomerism of diazoacetone and methyl diazoacetate were previously measured by low temperature NMR ([*JACS* **1966**, 950–956](https://pubs.acs.org/doi/10.1021/ja00957a017)). Notably, the ketone is predominantly  cis whereas the ester is a nearly equal mixture of cis and trans. If we did not have these experimental results, could we have predicted this with DFT?
 {: .text-justify }
 
@@ -229,7 +227,7 @@ In order to visualize molecular orbitals in a later tutorial, an additional keyw
 At this point we've optimized the cis geometry for alpha-diazoacetone and performed a single-point calculation. Now we need to repeat this process on the trans conformer. To generate inital coordinate for the the trans conformer, select 'Right Mouse' in the ChimeraX GUI, then select 'Bond Rotation'. Right click and drag about the bond torsion that you seek to manipulate. You can now generate a QM input for geometry optimization and frequency calculation using the the same settings that we used for the cis isomer.
 {: .text-justify }
 
-{% include image.html file="20230731_dihedra.gif" alt="alt" max-width=800 %}
+{% include image.html file="20230731_dihedral.gif" alt="alt" max-width=800 %}
 
 # **Analyze Thermochemistry**
 
