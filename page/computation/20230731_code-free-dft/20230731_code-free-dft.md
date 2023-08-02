@@ -39,14 +39,14 @@ This tutorial requires local installation of ORCA and ChimeraX (plus the SEQCROW
 The conformations of alpha-diazo carbonyl compounds have important implications for their reactivity. Upon photolysis, alpha-diazo carbonyl compounds that favor the trans conformation yield carbene trapping products (eg C-H insertion), whereas those that favor ths cis conformation yield predominantly Wolff rearrangement products.([*JACS* **1966**, 950–956](https://pubs.acs.org/doi/10.1021/ja00957a017)). It has been hypothesized that trans and cis conformers react via different pathways: the trans conformer can undergo nitrogen extrusion to generate a carbene intermediate whereas  the cis conformer undergoes a concerted Wolff rearrangement in the excited state without a carbene intermediate.([*JACS* **2008**, 3746-3747](https://pubs.acs.org/doi/full/10.1021/ja711346z)) Therefore, before developing a reaction to proceed through the intermediacy of an alpha-carbonyl carbene, one might seek to characterize the distribution of cis and trans conformers of the diazo precursor at equilibrium.
 {: .text-justify }
 
-#{% include image.html file="20230731_reactivity.png" alt="akt" max-width=800 %}
+{% include image.html file="20230731_reactivity.png" alt="alt" max-width=800 %}
 
 <img src="./images/20230731_reactivity.png" alt="alt" width="800">
 
 The equilibrium constants (K<sub>eq</sub>) for cis-trans isomerism of diazoacetone and methyl diazoacetate were previously measured by low temperature NMR ([*JACS* **1966**, 950–956](https://pubs.acs.org/doi/10.1021/ja00957a017)). Notably, the ketone is predominantly  cis whereas the ester is a nearly equal mixture of cis and trans. If we did not have these experimental results, could we have predicted this with DFT?
 {: .text-justify }
 
-<img src="./images/conformers.png" alt="cis-trans isomerism in alpha-diazo carbonyl isomers" width="800">
+{% include image.html file="20230731_conformers.png" alt="alt" max-width=800 %}
 
 The short answer is, yes. The tables below give the experimental and computed free energies for cis-to-trans isomerism of diazoacetone and methyl diazoacetate, as well as the values of K<sub>eq</sub> at -40 &deg;C (experimental conditions) and the portion of each isomer at equilibrium. 
 {: .text-justify }
@@ -76,8 +76,7 @@ The first step in performing any calculation is generating an intial set of xyz 
 From the ChimeraX GUI, go to the dropdown menu and select Tools > Structure Editing > 2D Builder. Then draw the structure in the editor and select 'open'
 {: .text-justify }
 
-
-<img src="./images/2D_builder.png" alt="2D builder" width="800">
+{% include image.html file="20230731_2D_builder.png" alt="alt" max-width=800 %}
 
 <details>
 
@@ -94,14 +93,12 @@ From the ChimeraX GUI, go to the dropdown menu and select Tools > Structure Edit
 Now that we have rough geometry, we need to optimize the geometry of the molecule. We can setup and submit this calculation directly from the ChimeraX+SEQCROW GUI if we have installed and setup ORCA. To do so navigate in the ChimeraX dropdown window to Tools > Quantum Chemistry > Build QM Input
 {: .text-justify }
 
-
-<img src="./images/Build_QM_input.png" alt="Build and submit QM input" width="800">
+{% include image.html file="20230731_build_qm_input.png" alt="alt" max-width=800 %}
 
 In the screenshot above you can see the first page of the QM input interface. We've selected ORCA as the file type. If multiple structures are open in ChimeraX, you can choose which structure to use as input from the 'structure' dropdown menu. Our stucture from the 2D builder is selected by it's default name 'new'. There are several sub-menus that are relevant to setting up our job. The setup for this calculation is illustrated graphically and described in more detail below.
 {: .text-justify }
 
-
-<img src="./images/QM_in.png" alt="Build and submit QM input" width="800">
+{% include image.html file="20230731_qm_in.png" alt="alt" max-width=800 %}
 
 **Job Details**
 
@@ -177,20 +174,17 @@ H     2.246600  -1.473000   0.511600
 To run the job, select 'Run' in the 'QM Input Generator' and select 'on this computer' in the following dropdown menu. A new window will popup called 'Launch Job'. Give the job a name in 'job name' and select 'run'. This optimization took about 9 minutes on my computer. The output of the optimization will popup in ChimeraX when it is finished. The output file is located in the `SEQCROW_SCRATCH` directory that was specified when [setting up]({{site.baseurl}}/page/computation/setup.html) SEQCROW in ChimeraX.
 {: .text-justify }
 
-
 # **Analyze Optimized Geometry**
 
 When the optimization is finished, it will popup in ChimeraX. In the screenshot below, I've hidden the input structure `new` and only have `ketone_c01` displayed (checked box under the eye icon on bottom right). To change the display settings to match those shown here, use the dropdown menu in ChimeraX and navigate to Presets > Ball-Stick-Endcap (only available if you have installed SEQCROW).
 {: .text-justify }
 
-
-<img src="./images/opt_output.png" alt="Build and submit QM input" width="800">
+{% include image.html file="20230731_opt_output.png" alt="alt" max-width=800 %}
 
 To view the optimization progress you can manually select the points in the plot of energy vs iteration as illustrated in the screengrab below.
 {: .text-justify }
 
-
-<img src="./images/opt_steps_manual.gif" alt="optimization steps" width="800">
+{% include image.html file="20230731_opt_steps_manual.png" alt="alt" max-width=800 %}
 
 <details>
 
@@ -203,8 +197,7 @@ Alternately, enter `coordset slider #2` (where `#2` corresponds to the ID# in th
 In the log you will see a note that reads `ketone_c01.out has 0 imaginary harmonic vibrational modes`. This confirms that the structure is a local minimum. To manually inspect vibrational modes, navigate in the ChimeraX dropdown menu to Tools > Quantum Chemistry > Visualize Normal Modes. In the resulting popup you can display the vectors of the vibrational mode and animate it. If you animate the vibrational mode, use the Reset Coordinates button in the Visualize Normal Modes popup to ensure that you are displaying the equilibrium geometry.
 {: .text-justify }
 
-#{% include image.html file="computation/code-free-dft/freq.gif" alt="frequency" max-width=800 %}
-
+{% include image.html file="20230731_freq.gif" alt="alt" max-width=800 %}
 
 <details>
 
@@ -226,7 +219,7 @@ Now we seek to resubmit the optimized geometry to a single point calculation at 
 
 In order to visualize molecular orbitals in a later tutorial, an additional keyword and block is needed. Add the keyword 'printBasis' as we did for 'TightSCF' above.  Under the 'additional options', use 'position' dropdown to select 'blocks'. Under 'block' enter 'scf', under 'option' enter 'print[p_mos] 1', and click 'add' for both. 
 
-<img src="./images/QM_in2.png" alt="visualize normal modes" width="800">
+{% include image.html file="20230731_qm_in2.png" alt="alt" max-width=800 %}
 
 </details>
 
@@ -236,8 +229,7 @@ In order to visualize molecular orbitals in a later tutorial, an additional keyw
 At this point we've optimized the cis geometry for alpha-diazoacetone and performed a single-point calculation. Now we need to repeat this process on the trans conformer. To generate inital coordinate for the the trans conformer, select 'Right Mouse' in the ChimeraX GUI, then select 'Bond Rotation'. Right click and drag about the bond torsion that you seek to manipulate. You can now generate a QM input for geometry optimization and frequency calculation using the the same settings that we used for the cis isomer.
 {: .text-justify }
 
-
-<img src="./images/dihedral.gif" alt="rotate about dihedral" width="800">
+{% include image.html file="20230731_dihedra.gif" alt="alt" max-width=800 %}
 
 # **Analyze Thermochemistry**
 
@@ -278,12 +270,13 @@ For simplicity, we will use the free energy value that corresponds to the value 
 {: .text-justify }
 
 
-<img src="./images/thermo.png" alt="SEQCROW thermochemistry" width="800">
+{% include image.html file="20230731_thermo.png" alt="alt" max-width=800 %}
 
 To recap, the figure and tables below summarize the measured and computed thermodynamics of cis-trans isomerism in diazoacetone and methyl diazoacetate. DFT recapitulates the observation that diazoacetone is predominantly the cis isomer at equilibrium whereas methyl diazoacetate is an nearly equal mixture of cis and trans. More importantly, for the synthetic chemist, these conformational preferences reflect the reactivity of these molecules. Diazoacetone is not a useful precursor for carbene chemistry because it is predominantly cis and reacts via a concerted Wolff rearangement with minimal formation of a carbene intermediate.([*J Phys Chem A* **2010** 13065–13068](https://pubs.acs.org/doi/10.1021/jp108690n)) Methyl diazoacetate, on the other hand, exists as a nearly equal mixture of cis and trans conformers and affords carbene trapping products in useful yields.([*Chem. Sci.* **2018** 5112-5118](https://pubs.rsc.org/en/content/articlepdf/2018/sc/c8sc01165f) and [*JACS* **1961** 1989–1992](https://pubs.acs.org/doi/10.1021/ja01469a050)).
 {: .text-justify }
 
-<img src="./images/conformers.png" alt="cis-trans isomerism in alpha-diazo carbonyl isomers" width="800">
+
+{% include image.html file="20230731_conformers.png" alt="alt" max-width=800 %}
 
 |    molecule          | source | &Delta;G | K<sub>eq</sub> | % cis | % trans |
 |:--------------------:|:------:|:---------:|:-------------:|:-----:|:-------:|
