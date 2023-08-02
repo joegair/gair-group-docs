@@ -184,7 +184,7 @@ When the optimization is finished, it will popup in ChimeraX. In the screenshot 
 To view the optimization progress you can manually select the points in the plot of energy vs iteration as illustrated in the screengrab below.
 {: .text-justify }
 
-{% include image.html file="20230731_opt_steps_manual.png" alt="alt" max-width=800 %}
+{% include image.html file="20230731_opt_steps_manual.gif" alt="alt" max-width=800 %}
 
 <details>
 
