@@ -93,7 +93,7 @@ Try running <code>open smiles:[H][C@@]12C[C@@H]([C@]3(C([C@@H](C4=C([C@@H](OC([C
 
 ## **Submit Geometry Optimization from a GUI**
 
-Now that we have rough geometry, we need to optimize the geometry of the molecule. We can setup and submit this calculation directly from the ChimeraX+SEQCROW GUI if we have installed and setup ORCA [to-do link instructions for ORCA setup]() To do so navigate in the ChimeraX dropdown window to Tools > Quantum Chemistry > Build QM Input
+Now that we have rough geometry, we need to optimize the geometry of the molecule. We can setup and submit this calculation directly from the ChimeraX+SEQCROW GUI if we have installed and setup ORCA. To do so navigate in the ChimeraX dropdown window to Tools > Quantum Chemistry > Build QM Input
 {: .text-justify }
 
 
