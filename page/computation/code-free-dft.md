@@ -134,7 +134,20 @@ It is often helpful to use tight SCF convergence criteria when performing a freq
 {: .text-justify }
 
 
-----------------------------------------------------------------
+
+<details>
+  <summary>Optional: input stucture.</summary>
+  
+  <p>If you only want to run simple calculations on your local machine, you can ignore this section. If you want to start learning how to run more powerful simulations, it is worth previewing the input file in the QM Input Generator by navigating to View > Preview. </p>
+
+  <p>Lines starting with <code>#</code> are comments and have no impact on the calculation.</p>
+
+  <p>The line starting with <code>!</code> is the header and contains most of the essential information for this job. The order of keywords in the header is not important.</p>
+
+  <p>The sections starting with <code>%</code> and ending with <code>end</code> are blocks. These are important for controlling more specific calculations, but we can essentially ignore them for now.</p>
+
+</details>
+
 
 <!-- Tab links -->
 <div class="tab card">
@@ -167,43 +180,24 @@ H     2.246600  -1.473000   0.511600
 {% include codecell.html content=struc_xyz %}
 </div>
 
-----------------------------------------------------------------
-
-
-
-<details>
-  <summary>Optional: input stucture.</summary>
-  
-  <p>If you only want to run simple calculations on your local machine, you can ignore this section. If you want to start learning how to run more powerful simulations, it is worth previewing the input file in the QM Input Generator by navigating to View > Preview. </p>
-
-  <p>Lines starting with <code>#</code> are comments and have no impact on the calculation.</p>
-
-  <p>The line starting with <code>!</code> is the header and contains most of the essential information for this job. The order of keywords in the header is not important.</p>
-
-  <p>The sections starting with <code>%</code> and ending with <code>end</code> are blocks. These are important for controlling more specific calculations, but we can essentially ignore them for now.</p>
-
-</details>
-
 
 **Run**
 
-To run the job, select 'Run' in the 'QM Input Generator' and select 'on this computer' in the following dropdown menu. A new window will popup called 'Launch Job'. Give the job a name in 'job name' and select 'run'.
+To run the job, select 'Run' in the 'QM Input Generator' and select 'on this computer' in the following dropdown menu. A new window will popup called 'Launch Job'. Give the job a name in 'job name' and select 'run'. This optimization took about 9 minutes on my computer. The output of the optimization will popup in ChimeraX when it is finished. The output file is located in the `SEQCROW_SCRATCH` directory that was specified when [setting up]({{site.baseurl}}/page/computation/setup.html) SEQCROW in ChimeraX.
+{: .text-justify }
 
-This optimization took about 9 minutes on my computer. The output of the optimization will popup in ChimeraX when it is finished.
-
-The output file is located in the `SEQCROW_SCRATCH` directory that was specified when setting up SEQCROW in ChimeraX.
 
 # **Analyze Optimized Geometry**
 
-When the optimization is finished, it will popup in ChimeraX. 
+When the optimization is finished, it will popup in ChimeraX. In the screenshot below, I've hidden the input structure `new` and only have `ketone_c01` displayed (checked box under the eye icon on bottom right). To change the display settings to match those shown here, use the dropdown menu in ChimeraX and navigate to Presets > Ball-Stick-Endcap (only available if you have installed SEQCROW).
+{: .text-justify }
 
-In the screenshot below, I've hidden the input structure `new` and only have `ketone_c01` displayed (checked box under the eye icon on bottom right). 
-
-To change the display settings to match those shown here, use the dropdown menu in ChimeraX and navigate to Presets > Ball-Stick-Endcap (only available if you have installed SEQCROW). 
 
 <img src="./images/opt_output.png" alt="Build and submit QM input" width="800">
 
 To view the optimization progress you can manually select the points in the plot of energy vs iteration as illustrated in the screengrab below.
+{: .text-justify }
+
 
 <img src="./images/opt_steps_manual.gif" alt="optimization steps" width="800">
 
@@ -215,10 +209,8 @@ Alternately, enter `coordset slider #2` (where `#2` corresponds to the ID# in th
 
 </details>
 
-In the log you will see a note that reads `ketone_c01.out has 0 imaginary harmonic vibrational modes`. This confirms that the structure is a local minimum.
-
-To manually inspect vibrational modes, navigate in the ChimeraX dropdown menu to Tools > Quantum Chemistry > Visualize Normal Modes. In the resulting popup you can display the vectors of the vibrational mode and animate it. If you animate the vibrational mode, use the Reset Coordinates button in the Visualize Normal Modes popup to ensure that you are displaying the equilibrium geometry.
-
+In the log you will see a note that reads `ketone_c01.out has 0 imaginary harmonic vibrational modes`. This confirms that the structure is a local minimum. To manually inspect vibrational modes, navigate in the ChimeraX dropdown menu to Tools > Quantum Chemistry > Visualize Normal Modes. In the resulting popup you can display the vectors of the vibrational mode and animate it. If you animate the vibrational mode, use the Reset Coordinates button in the Visualize Normal Modes popup to ensure that you are displaying the equilibrium geometry.
+{: .text-justify }
 
 #{% include image.html file="computation/code-free-dft/freq.gif" alt="frequency" max-width=800 %}
 
@@ -233,9 +225,9 @@ If you do encounter undesired negative vibrational frequencies, one way to resol
 
 # **Submit Optimized Geomtery to Single Point**
 
-Now we seek to resubmit the optimized geometry to a single point calculation at a higher level of theory. To do so, navigate to Tools > Quantum Chemistry > Build QM Input. 
+Now we seek to resubmit the optimized geometry to a single point calculation at a higher level of theory. To do so, navigate to Tools > Quantum Chemistry > Build QM Input. Use the structure dropdown menu to select the geometry from the optimization job. Unselect the options for 'geometry optimization' and 'frequency calculation'. We will use the same solvent settings as we did in the optimization step. We will use the same method (density functional and dispersion model) as the optimization. We will use a larger basis set, def2-TZVP. Submit the job the same way the optimization was submitted (I like to use the suffix `_sp` on single point calculations to keep track of which single-point job corresponds to which geometry).
+{: .text-justify }
 
-Use the structure dropdown menu to select the geometry from the optimization job. Unselect the options for 'geometry optimization' and 'frequency calculation'. We will use the same solvent settings as we did in the optimization step. We will use the same method (density functional and dispersion model) as the optimization. We will use a larger basis set, def2-TZVP. Submit the job the same way the optimization was submitted (I like to use the suffix `_sp` on single point calculations to keep track of which single-point job corresponds to which geometry). 
 
 <details>
 
@@ -251,14 +243,16 @@ In order to visualize molecular orbitals in a later tutorial, an additional keyw
 # **Rotate Torsions**
 
 At this point we've optimized the cis geometry for alpha-diazoacetone and performed a single-point calculation. Now we need to repeat this process on the trans conformer. To generate inital coordinate for the the trans conformer, select 'Right Mouse' in the ChimeraX GUI, then select 'Bond Rotation'. Right click and drag about the bond torsion that you seek to manipulate. You can now generate a QM input for geometry optimization and frequency calculation using the the same settings that we used for the cis isomer.
+{: .text-justify }
+
 
 <img src="./images/dihedral.gif" alt="rotate about dihedral" width="800">
 
 # **Analyze Thermochemistry**
 
-After performing a geometry optimization, frequency calculation, and single-point calculation on the cis and trans conformers of diazoacetone we are ready to analyze the thermochemistry of the conformational equilibrium.
+After performing a geometry optimization, frequency calculation, and single-point calculation on the cis and trans conformers of diazoacetone we are ready to analyze the thermochemistry of the conformational equilibrium. Thermochemical analysis can be performed the ChimeraX+SEQCROW GUI. First, open the optimization and single point jobs for each of the structures you wish to compare. In this case,
+{: .text-justify }
 
-Thermochemical analysis can be performed the ChimeraX+SEQCROW GUI. First, open the optimization and single point jobs for each of the structures you wish to compare. In this case,
 ```
 ketone_cis.out
 ketone_cis_sp.out
@@ -267,6 +261,8 @@ ketone_trans_sp.out
 ```
 
  From the dropdown menu navigate to Tools > Quantum Chemistry > Thermochemistry. In the Thermochemistry window, select the 'relative' tab. Select the following files in the designated dropdown menus.
+ {: .text-justify }
+
 
 **group 1 energy**: ketone_cis_sp.out
 
@@ -277,7 +273,7 @@ ketone_trans_sp.out
 **group 2 frequencies**: ketone_trans.out
 
 The bottom of the thermochemistry window gives the energy of the 'other group' relative to the 'reference group'. 
-
+{: .text-justify }
 
 <details>
 
@@ -288,13 +284,15 @@ Since low-frequency normal modes are both prone to error and poorly modeled as v
 </details>
 
 For simplicity, we will use the free energy value that corresponds to the value that ORCA prints as the final free energy (&Delta;G<sub>Quasi-RRHO</sub> with &omega;<sub>0</sub> = 100 cm<sup>-1</sup>).
+{: .text-justify }
+
 
 <img src="./images/thermo.png" alt="SEQCROW thermochemistry" width="800">
 
-To recap, the figure and tables below summarize the measured and computed thermodynamics of cis-trans isomerism in diazoacetone and methyl diazoacetate. DFT recapitulates the observation that diazoacetone is predominantly the cis isomer at equilibrium whereas methyl diazoacetate is an nearly equal mixture of cis and trans.
+To recap, the figure and tables below summarize the measured and computed thermodynamics of cis-trans isomerism in diazoacetone and methyl diazoacetate. DFT recapitulates the observation that diazoacetone is predominantly the cis isomer at equilibrium whereas methyl diazoacetate is an nearly equal mixture of cis and trans. More importantly, for the synthetic chemist, these conformational preferences reflect the reactivity of these molecules. Diazoacetone is not a useful precursor for carbene chemistry because it is predominantly cis and reacts via a concerted Wolff rearangement with minimal formation of a carbene intermediate.([*J Phys Chem A* **2010** 13065–13068](https://pubs.acs.org/doi/10.1021/jp108690n)) Methyl diazoacetate, on the other hand, exists as a nearly equal mixture of cis and trans conformers and affords carbene trapping products in useful yields.([*Chem. Sci.* **2018** 5112-5118](https://pubs.rsc.org/en/content/articlepdf/2018/sc/c8sc01165f) and [*JACS* **1961** 1989–1992](https://pubs.acs.org/doi/10.1021/ja01469a050)).
+{: .text-justify }
 
 <img src="./images/conformers.png" alt="cis-trans isomerism in alpha-diazo carbonyl isomers" width="800">
-
 
 |    molecule          | source | &Delta;G | K<sub>eq</sub> | % cis | % trans |
 |:--------------------:|:------:|:---------:|:-------------:|:-----:|:-------:|
@@ -305,4 +303,4 @@ To recap, the figure and tables below summarize the measured and computed thermo
 
 -------------------------------------------------------------------------
 
-All of the input and output files for the calculations in this tutorial can be found [here](https://github.com/joegair/gair-group-docs/tree/main/assets/data/computation/code-free-dft/).. 
+All of the input and output files for the calculations in this tutorial can be found [here](https://github.com/joegair/gair-group-docs/tree/main/assets/data/computation/code-free-dft/).
