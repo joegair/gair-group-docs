@@ -19,7 +19,7 @@ There are many [resources](https://sites.google.com/site/orcainputlibrary/home) 
 {: .fs-6 .fw-300 .text-justify}
 
 This tutorial requires local installation of ORCA and ChimeraX (plus the SEQCROW extension to ChimeraX). Instructions for setup can be found [here]({{site.baseurl}}/page/computation/setup.html). All of the input and output files for the calculations in this tutorial can be found 
-[here](https://github.com/joegair/gair-group-docs/tree/main/assets/data/computation/code-free-dft/). The files are provided so that so that you can play around with visualization and analysis before running your own calculations.
+[here](https://github.com/joegair/gair-group-docs/tree/main/assets/data/computation/code-free-dft/). The files are provided so that you can play around with visualization and analysis before running your own calculations.
 {: .fs-6 .fw-300 .text-justify}
 
 
@@ -36,21 +36,21 @@ This tutorial requires local installation of ORCA and ChimeraX (plus the SEQCROW
 
 ## **Which Conformer is Preferred?**
 
-The conformations of alpha-diazo carbonyl compounds have important implications for their reactivity. Upon photolysis, alpha-diazo carbonyl compounds that favor the trans conformation yield carbene trapping products (eg C-H insertion), whereas those that favor ths cis conformation yield predominantly Wolff rearrangement products.([*JACS* **1966**, 950–956](https://pubs.acs.org/doi/10.1021/ja00957a017)). It has been hypothesized that trans and cis conformers react via different pathways: the trans conformer can undergo nitrogen extrusion to generate a carbene intermediate whereas  the cis conformer undergoes a concerted Wolff rearrangement in the excited state without a carbene intermediate.([*JACS* **2008**, 3746-3747](https://pubs.acs.org/doi/full/10.1021/ja711346z)) Therefore, before developing a reaction to proceed through the intermediacy of an alpha-carbonyl carbene, one might seek to characterize the distribution of cis and trans conformers of the diazo precursor at equilibrium.
+The conformations of alpha-diazo carbonyl compounds have important implications for their reactivity. Upon photolysis, alpha-diazo carbonyl compounds that favor the trans conformation yield carbene trapping products (eg C-H insertion), whereas those that favor the cis conformation yield predominantly Wolff rearrangement products.([*JACS* **1966**, 950–956](https://pubs.acs.org/doi/10.1021/ja00957a017)). It has been hypothesized that trans and cis conformers react via different pathways: the trans conformer can undergo nitrogen extrusion to generate a carbene intermediate whereas  the cis conformer undergoes a concerted Wolff rearrangement in the excited state without a carbene intermediate.([*JACS* **2008**, 3746-3747](https://pubs.acs.org/doi/full/10.1021/ja711346z)) Therefore, before developing a reaction to proceed through the intermediacy of an alpha-carbonyl carbene, one might seek to characterize the distribution of cis and trans conformers of the diazo precursor at equilibrium.
 {: .text-justify }
 
-{% include image.html file="20230731_reactivity.png" alt="alt" max-width=800 %}
+{% include image.html file="20230731_reactivity.png" alt="alt" max-width=600 %}
 
-The equilibrium constants (K<sub>eq</sub>) for cis-trans isomerism of diazoacetone and methyl diazoacetate were previously measured by low temperature NMR ([*JACS* **1966**, 950–956](https://pubs.acs.org/doi/10.1021/ja00957a017)). Notably, the ketone is predominantly  cis whereas the ester is a nearly equal mixture of cis and trans. If we did not have these experimental results, could we have predicted this with DFT?
+The equilibrium constants (K<sub>eq</sub>) for cis-trans isomerism of diazoacetone and methyl diazoacetate were previously measured by low temperature NMR ([*JACS* **1966**, 950–956](https://pubs.acs.org/doi/10.1021/ja00957a017)). Notably, the ketone is predominantly  cis whereas the ester is a nearly equal mixture of cis and trans. If we did not have these experimental results, could we have predicted this using DFT?
 {: .text-justify }
 
-{% include image.html file="20230731_conformers.png" alt="alt" max-width=800 %}
+{% include image.html file="20230731_conformers.png" alt="alt" max-width=600 %}
 
 The short answer is, yes. The tables below give the experimental and computed free energies for cis-to-trans isomerism of diazoacetone and methyl diazoacetate, as well as the values of K<sub>eq</sub> at -40 &deg;C (experimental conditions) and the portion of each isomer at equilibrium. 
 {: .text-justify }
 
 
-Density functional theory acurately predicts that the cis isomer is preferred for the ketone (diazoacetone) whereas isomerism is approximately thermoneutral for the ester (methyl diazoacetate).
+Density functional theory accurately predicts that the cis isomer is preferred for the ketone (diazoacetone) whereas isomerism is nearly thermoneutral for the ester (methyl diazoacetate).
 {: .text-justify }
 
 
@@ -67,11 +67,7 @@ Follow the tutorial below to see how one arrives at these numbers. (And the tuto
 
 ## **Generate Input Structures**
 
-The first step in performing any calculation is generating an intial set of xyz coordinates. One of the easiest ways to do this is from the 2D builder tool in ChimeraX after installing the SEQCROW extension (see [Setup ORCA]({{site.baseurl}}/page/computation/setup.html).
-{: .text-justify }
-
-
-From the ChimeraX GUI, go to the dropdown menu and select Tools > Structure Editing > 2D Builder. Then draw the structure in the editor and select 'open'
+The first step in performing any calculation is generating an intial set of xyz coordinates. One of the easiest ways to do this is from the 2D builder tool in ChimeraX after installing the SEQCROW extension (see [Setup ORCA]({{site.baseurl}}/page/computation/setup.html). To do this, select Tools > Structure Editing > 2D Builder. Then draw the structure in the editor and select 'open'
 {: .text-justify }
 
 {% include image.html file="20230731_2D_builder.png" alt="alt" max-width=800 %}
@@ -100,7 +96,7 @@ In the screenshot above you can see the first page of the QM input interface. We
 
 **Job Details**
 
-The charge is 0 for our neutral molecule. The multiplicity is 1 because we are looking at the singlet state. We've selected the boxes for geometry optimization and frequency calculation. We include the frequency calculation to ensure that the geometry that results from our optimization is a true local minimum (no negative frequencies). For local calculations 1 processor and 1 GB of memory is adequate. We can also select the 'solvent' sub-menu to set an implicit solvation model. I've opted for the conductor-like polarizable continuum model (CPCM) with dichloromethane (CH2Cl2). No changes are needed in the optimization settings or frequency settings for this job.
+For this calculation, we set the charge to 0 for our neutral molecule and the multiplicity to 1 since we are examining the singlet state. We've selected the boxes for geometry optimization and frequency calculation. We include the frequency calculation to ensure that the geometry that results from our optimization is a true local minimum (no negative frequencies). For local calculations 1 processor and 1 GB of memory is adequate. We can also select the 'solvent' sub-menu to set an implicit solvation model. I've opted for the conductor-like polarizable continuum model (CPCM) with dichloromethane (CH<sub>2</sub>Cl<sub>2</sub>). No changes are needed in the optimization settings or frequency settings for this job.
 {: .text-justify }
 
 
@@ -112,7 +108,7 @@ For simplicity, we'll opt for the most generic method in DFT, B3LYP with Grimme'
 
 **Basis Functions**
 
-Here we'll opt for a balanced, modern basis set, def2-svp.
+Here we'll opt for a balanced and modern def2-svp basis set,.
 
 **Additional Options**
 
@@ -192,7 +188,7 @@ Alternately, enter `coordset slider #2` (where `#2` corresponds to the ID# in th
 
 </details>
 
-In the log you will see a note that reads `ketone_c01.out has 0 imaginary harmonic vibrational modes`. This confirms that the structure is a local minimum. To manually inspect vibrational modes, navigate in the ChimeraX dropdown menu to Tools > Quantum Chemistry > Visualize Normal Modes. In the resulting popup you can display the vectors of the vibrational mode and animate it. If you animate the vibrational mode, use the Reset Coordinates button in the Visualize Normal Modes popup to ensure that you are displaying the equilibrium geometry.
+In the log, you will see a note that reads `ketone_c01.out has 0 imaginary harmonic vibrational modes`. This confirms that the structure is a local minimum. To manually inspect vibrational modes, navigate in the ChimeraX dropdown menu to Tools > Quantum Chemistry > Visualize Normal Modes. In the resulting popup you can display the vectors of the vibrational mode and animate it. If you animate the vibrational mode, use the Reset Coordinates button in the Visualize Normal Modes popup to ensure that you are displaying the equilibrium geometry.
 {: .text-justify }
 
 {% include image.html file="20230731_freq.gif" alt="alt" max-width=800 %}
@@ -274,7 +270,7 @@ To recap, the figure and tables below summarize the measured and computed thermo
 {: .text-justify }
 
 
-{% include image.html file="20230731_conformers.png" alt="alt" max-width=800 %}
+{% include image.html file="20230731_conformers.png" alt="alt" max-width=600 %}
 
 |    molecule          | source | &Delta;G | K<sub>eq</sub> | % cis | % trans |
 |:--------------------:|:------:|:---------:|:-------------:|:-----:|:-------:|
