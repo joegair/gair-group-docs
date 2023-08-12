@@ -1,0 +1,12 @@
+movie record
+wait 5
+turn axis y angle 1 frames 60
+wait 60
+turn axis y angle -1 frames 60
+wait 60
+transparency #2 80 atoms
+coordset #3 1,51
+wait 50
+coordset #3 51,1
+wait 50
+movie encode ~/Desktop/movie6.mp4 quality low
