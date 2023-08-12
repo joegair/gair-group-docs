@@ -19,7 +19,7 @@ There are many [resources](https://sites.google.com/site/orcainputlibrary/home) 
 {: .fs-6 .fw-300 .text-justify}
 
 This tutorial requires local installation of ORCA and ChimeraX (plus the SEQCROW extension to ChimeraX). Instructions for setup can be found [here]({{site.baseurl}}/page/computation/setup.html). All of the input and output files for the calculations in this tutorial can be found 
-[here](https://github.com/joegair/gair-group-docs/tree/main/assets/data/computation/code-free-dft/). The files are provided so that you can play around with visualization and analysis before running your own calculations.
+[here](https://github.com/joegair/gair-group-docs/tree/main/assets/data/20230731_code-free-dft/). The files are provided so that you can play around with visualization and analysis before running your own calculations.
 {: .fs-6 .fw-300 .text-justify}
 
 
