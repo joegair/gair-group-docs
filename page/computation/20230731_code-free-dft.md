@@ -201,7 +201,7 @@ If you do encounter undesired negative vibrational frequencies, one way to resol
 
 </details>
 
-# **Submit Optimized Geomtery to Single Point**
+# **Submit Optimized Geometry to Single Point**
 
 Now we seek to resubmit the optimized geometry to a single point calculation at a higher level of theory. To do so, navigate to Tools > Quantum Chemistry > Build QM Input. Use the structure dropdown menu to select the geometry from the optimization job. Unselect the options for 'geometry optimization' and 'frequency calculation'. We will use the same solvent settings as we did in the optimization step. We will use the same method (density functional and dispersion model) as the optimization. We will use a larger basis set, def2-TZVP. Submit the job the same way the optimization was submitted (I like to use the suffix `_sp` on single point calculations to keep track of which single-point job corresponds to which geometry).
 {: .text-justify }
