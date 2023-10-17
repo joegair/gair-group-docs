@@ -24,10 +24,14 @@ This page describes how to setup ORCA to perform DFT calculations on your person
 
 
 ## Local ORCA
-ORCA can be downloaded [here](https://orcaforum.kofo.mpg.de/index.php). You will need to register as a user before you can download.
+ORCA can be downloaded [here](https://orcaforum.kofo.mpg.de/index.php). You will need to register as a user before you can download. Note that ORCA is a command line program, you cannot open/run ORCA by clicking on the 'ORCA' file. The objective of the following tutorials is to interface ORCA with a graphical user interface, so that you can perform quantum chemical calculations before learning how to use command line programs.
 {: .text-justify }
 
-After downloading, you can use the detailed instructions found [here](https://sites.google.com/site/orcainputlibrary/setting-up-orca) to install ORCA for local use.
+The official ORCA tutorials are found [here](https://www.orcasoftware.de/tutorials_orca/). For many first time users, the most challenging aspect of setting up ORCA is setting the path variables. Detailed instructions for setting path variables can be found [here](https://www.orcasoftware.de/tutorials_orca/first_steps/trouble_install.html#assigning-path-variables).
+{: .text-justify }
+
+
+An additional resource for setting up ORCA, that I found very useful, can be found [here](https://sites.google.com/site/orcainputlibrary/setting-up-orca).
 {: .text-justify }
 
 
