@@ -1,0 +1,15 @@
+%mem=16GB
+%nprocshared=16
+#p opt freq=noraman b3lyp/6-31g(d) pop=none empiricaldispersion=gd3bj scrf=(solvent=diethylether,pcm)
+
+from b3lyp d3bj 6-31gd // adding pcm
+
+0 1
+ C                  0.48700400    0.24143800   -0.00053000
+ O                  0.86086100    1.36800000    0.00002800
+ Cl                -1.30707800   -0.13858000    0.00023000
+ C                  1.31507300   -1.01198200   -0.00013600
+ H                  1.07393200   -1.61180000    0.88254600
+ H                  1.07432400   -1.61206800   -0.88273900
+ H                  2.37271900   -0.74101400    0.00006500
+
