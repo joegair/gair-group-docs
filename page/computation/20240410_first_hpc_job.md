@@ -1,11 +1,11 @@
 ---
 layout: default
-title: Model UV-Vis
+title: DFT on MSU High Performance Computing
 parent: Computation
 nav_order: 4
 has_toc: false
-summary: "model UV-vis spectra"
-permalink: /page/computation/diazo-uv.html
+summary: "submit DFT jobs to HPC at MSU"
+permalink: /page/computation/dft-msu-hpc.html
 ---
 
 
@@ -13,11 +13,9 @@ permalink: /page/computation/diazo-uv.html
 {: .no_toc }
 
 
-This tutorial will demonstrate how to predict UV-vis spectra using density functional theory. All of the calculations and analysis can be performed on your laptop using a simple graphical interface.
+This tutorial will demonstrate how to get high performance computing (HPC) account at MSU, how to get access to ORCA and Gaussian on HPC, and how to submit DFT calculations on HPC. The goal is for this tutorial to be accessible to folks with no coding experience. Download the neccessary submission script and input files [here](https://github.com/joegair/gair-group-docs/tree/main/assets/data/20240410_first_hpc_job/download).
 {: .fs-6 .fw-300 .text-justify}
 
-This tutorial requires local installation of ORCA and ChimeraX (plus the SEQCROW extension to ChimeraX). Instructions for setup can be found [here]({{site.baseurl}}/page/computation/setup.html). All of the input, output, and analysis files for the calculations in this tutorial can be found [here](https://github.com/joegair/gair-group-docs/tree/main/assets/data/20230818_diazo-uv/). The files are provided so that so that you can play around with visualization and analysis before running your own calculations.
-{: .fs-6 .fw-300 .text-justify}
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -32,131 +30,6 @@ This tutorial requires local installation of ORCA and ChimeraX (plus the SEQCROW
 
 In 1956, William von E. Doering and co-workers photolyzed diazomethane to generate methylene, which inserted into the C-H bonds of various alkanes with statistical selectivity ([*JACS* **1956**, 3224](https://pubs.acs.org/doi/pdf/10.1021/ja01594a071)). This reactivity earned methylene the title of "the most indiscriminate reagent known in organic chemistry." More recently, Huw Davies and co-workers demonstrated that carbenes derived from alpha-diazoacetates can be generated under mild conditions (blue LEDs), and intercepted for synthetic applications [*Chem. Sci.* **2018** 5112-5118](https://pubs.rsc.org/en/content/articlelanding/2018/sc/c8sc01165f). Notably, much higher yields were obtained from diazo compounds that absorbed at longer wavelengths (further into the visible region). This led me to wonder whether DFT would serve as a useful model to quickly check whether a given diazo compound absorbs visible light.
 {: .text-justify }
-
-# **Diazo Series**
-
-I chose a paper that reports the UV-vis features of seven reasonably diverse diazo compounds and sought to assess whether DFT could recapitulate the experimental trends ([*Justus Liebigs Ann. Chem.* **1959**, 34–43](https://doi.org/10.1002/jlac.19596250105)). The figure below illustrates the relevant compounds and their lowest energy electronic transitions.
-{: .text-justify }
-
-
-{% include image.html file="20230818_structures_by_lambda.png" alt="substituted diazos and their lowest energy absorptions" max-width=800 %}
-
-I found this series puzzling. We [teach](https://www2.chemistry.msu.edu/faculty/reusch/virttxtjml/spectrpy/uv-vis/spectrum.htm) in introductory organic chemistry that increasing conjugation tends to shift the absorption spectrum to longer wavelengths. In this series, however, we observe the unusal trend that the least conjugated compound has the second longest wavelength (diazomethane, 417 nm) and the most conjugated compound has the shortest wavelength (2-diazo-propane-1,3-dione, 275 nm).
-{: .text-justify }
-
-# **Write Inputs**
-
-The structures of all the compounds in the diazo series were optimized using a procedure similar to the one described [previously]({{site.baseurl}}/page/computation/code-free-dft.html). Rather than computing these geometries yourself, you can download the output files from my calculations in the zipped directory linked [here](https://github.com/joegair/gair-group-docs/tree/main/assets/data/20230818_diazo-uv/). Open the outputs in ChimeraX and use the geometries from my outputs as your inputs.  The electronic transitions then can be calculated by adding a `%TDDFT` (time-dependent density functional theory) block to the input file along with the appropriate number of roots. We only need one root to model the lowest energy electronic transition, but we use 12 roots so that we can also model the full UV-vis spectrum later on. The `%TDDFT` block can be added in ChimeraX + SEQCROW QM input generator as illustrated in the screenshot below. 
-{: .text-justify }
-
-{% include image.html file="20230818_tddft_block.png" alt="screenshot of QM input generator" max-width=800 %}
-
-The input file for diazomethane is provided below. You can preview your input file in Chimerax + SEQCROW within the QM input generator from the dropdown menu "View > Preview". Note that `printBasis` in the header and the block `%scf print[p_mos] 1 end` are included so that we can visualize orbitals later.
-{: .text-justify }
-
-----------------------------------------------------------------
-
-<!-- Tab links -->
-<div class="tab card">
-  <button class="tablinks tab-1-1" onclick="openTabId(event, 'CN2H2-tddft.inp', 'tab-1-1')">{{ site.data.icons.codefile }}  <code>CN2H2-tddft.inp</code></button>
-</div>
-<div id="CN2H2-tddft.inp" class="tabcontent tab-1-1" style="font-size:10px">
-{% capture struc_xyz %}
-! B3LYP TightSCF printBasis def2-TZVP
-%pal
-    nprocs 1
-end
-%scf
-    print[p_mos] 1
-end
-%TDDFT
-    NROOTS 12
-end
-
-*xyz 0 1
-H     1.726633  -0.944897  -0.001218
-C     1.203408  -0.000000  -0.000981
-H     1.726633   0.944897  -0.001218
-N    -0.079228  -0.000000  -0.000264
-N    -1.229147   0.000000   0.000382
-*
-{% endcapture %}
-{% include codecell.html content=struc_xyz %}
-</div>
-
-----------------------------------------------------------------
-
-# **Analyze Output**
-
-After running these calculations, you can inspect the output file, where you will find that the first electronic transition of diazomethane absorbs at ~419 nm. An excerpt of the output file is provided below. 
-{: .text-justify }
-
-```
------------------------------------------------------------------------------
-         ABSORPTION SPECTRUM VIA TRANSITION ELECTRIC DIPOLE MOMENTS
------------------------------------------------------------------------------
-State   Energy    Wavelength  fosc         T2        TX        TY        TZ  
-        (cm-1)      (nm)                 (au**2)    (au)      (au)      (au) 
------------------------------------------------------------------------------
-   1   23890.9    418.6   0.000000000   0.00000   0.00000  -0.00001  -0.00000
-```
-
-# **Plot Spectrum**
-
-The procedure to model the UV-vis spectrum of a compound is similar to the process described for [IR spectra]({{site.baseurl}}/page/computation/diazo-ir.html). To begin, download the zipped directory linked [here](https://github.com/joegair/gair-group-docs/tree/main/assets/data/20230818_diazo-uv/). Open the files titled `Ph2CN2H-tddft.out` and `PhCOCN2COPh-tddft.out` with ChimeraX. Navigate to Tools > Quantum Chemistry > UV/Vis Spectrum.
-{: .text-justify }
-
-
-Set the options in the "UV/Vis Spectrum" window under the "components tab" to match those in the screenshot below. You may also need to go to the "plot settings" tab and set "peak type" to "Gaussian", "FWHM" to "0.5 eV", and "x-axis units" to "nm".
-{: .text-justify }
-
-
-{% include image.html file="20230818_spectrum_settings.png" alt="screenshot of UV/vis spectrum settings" max-width=600 %}
-
-With these settings, navigating to the "plot" tab should reveal an image similar to the one shown below (you will need to zoom in to the relevant transitions). The solid black line represents the sum of the green and blue dotted lines and models what a 1:1 mixture of the two compounds would look like.
-{: .text-justify }
-
-{% include image.html file="20230818_spectrum.png" alt="plot of modeled UV/vis spectrum for two diazo compounds" max-width=800 %}
-
-# **Experiment vs DFT**
-
-If we extract the longest wavelength absorption from each output file and plot it against the [experimental](https://doi.org/10.1002/jlac.19596250105) values, we find that DFT ranks the seven diazo compounds in the correct order, capturing the surprising phenomenon whereby the most conjugated compound has the shortest wavelength. 
-{: .text-justify }
-
-{% include image.html file="20230818_uv_plot.png" alt="plot of experimental vs computed lowest energy absorbance" max-width=600 %}
-
-The Jupyter Notebookused to parse electronic transitions and generate this plot is can be previewed [here](https://github.com/joegair/gair-group-docs/tree/main/assets/data/20230818_diazo-uv/analyze_uv.ipynb). To run the notebook on your own machine, download the [zipped](https://github.com/joegair/gair-group-docs/tree/main/assets/data/20230818_diazo-uv/) directory to access the relevant output files and the `ipynb` file.
-{: .text-justify }
-
-
-# **Interpreting Absorption**
-
-So this series exhibits a surprising trend: the less conjugated molecules absorb light at longer wavelengths. How is this the case? We start by looking at the molecular orbitals involved in the electronic transition. Since we are looking at the lowest energy transition (longest wavelength), we must be looking at the HOMO-LUMO transition. To inspect the HOMO and LUMO, we can open [CN2H2-tddft.out](https://github.com/joegair/gair-group-docs/tree/main/assets/data/20230818_diazo-uv/) with ChimeraX. Then navigate to Tools > Quantum Chemistry > Orbital Viewer. Select the orbital of interest in the pop-up viewer and click 'view selected orbital'.
-{: .text-justify }
-
-**diazomethane HOMO, &pi;(C-N)**
-{% include image.html file="20230818_diazo-uv-homo-screenshot.png" alt="diazomethane HOMO" max-width=600 %}
-
-As shown in the image above, the HOMO of diazomethane has &pi;(C-N) character and is out of the plane of the molecule. In contrast, the LUMO is in the plane of the molecule and has π*(N-N) character (see image below). The frontier orbitals of diazomethane shown here closely resemble those published for phenyl diazomethane ([*J. Phys. Chem. A.* **2010**, 5902](https://pubs.acs.org/doi/10.1021/jp1012939)). 
-{: .text-justify }
-
-
-When the HOMO and LUMO are parallel, increasing conjugation tends to decrease the HOMO-LUMO gap and increase the wavelength of the lowest energy absorption.([ref](https://www2.chemistry.msu.edu/faculty/reusch/virttxtjml/spectrpy/uv-vis/spectrum.htm)) The fact that the frontier orbitals are orthogonal (minimal overlap) in the diazo series provides an explanation for why increasing conjugation does not increase the wavelength of the lowest energy absorption. 
-{: .text-justify }
-
-**diazomethane LUMO, π*(N-N)**
-{% include image.html file="20230818_diazo-uv-lumo-screenshot.png" alt="diazomethane LUMO" max-width=600 %}
-
-
-# **Reactivity**
-
-Now that we know something about the electronic transition that absorbs visible light, can we rationalize the reactivity of the excited state? We noted at the start of the tutorial that photolysis of diazomethane generates methylene (CH2) by extrusion of N2. This reactivity aligns with the orbitals involved in the lowest energy transition. Specifically, we would expect that promoting an electron out of the HOMO, which has C-N bonding character, should decrease the bonding between C-N and favor dissociation of N2 to generate methylene.
-{: .text-justify }
-
-Now that you know how to model UV spectra, inspect the molecular orbitals involved in the absorption of light, and use that information to understand reactivity... what yellow molecules do you work with and what will they do when you shine blue light on them?
-{: .text-justify }
-
-
 
 
 
