@@ -110,8 +110,8 @@ function write_input() {
 	local template
 	if [ "$extension" = "inp" ]; then
 		template="$orca"
-		cpus=$(grep -oP '(?<=\bnprocs\s)\d+' "$calc")
-		mem=$((( ($(grep -oP '(?<=\bmaxcore\s)\d+' "$calc") * cpus) + 2000) / 1000 ))
+		cpus=$(grep -oiP '(?<=\bnprocs\s)\d+' "$calc")
+		mem=$((( ($(grep -oiP '(?<=\bmaxcore\s)\d+' "$calc") * cpus) + 2000) / 1000 ))
 	elif [ "$extension" = "gjf" ]; then
 		template="$gaussian"
 		mem=$(grep -m 1 %mem "$calc" | cut -d "=" -f 2 | sed s/GB// | awk '{print $1 + 2}')
