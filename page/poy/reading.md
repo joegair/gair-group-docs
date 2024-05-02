@@ -40,7 +40,9 @@ Click and drag the link below into your bookmarks (tested Chrome & Safari on Mac
 When you are away from campus, navigate to a journal article that is stuck behind a firewall. While you're still on the article's website, click the msuEZproxy bookmarklet. The bookmarklet will modify the URL of the current website. For example, using the bookmarklet at... 
 
 https://onlinelibrary.wiley.com/doi/10.1002/anie.202402541
+
 converts the URL to
+
 https://onlinelibrary-wiley-com.proxy2.cl.msu.edu/doi/10.1002/anie.202402541
 
 ### Mobile
@@ -59,12 +61,12 @@ If your bookmarks do not sync to your phone automatically, you can add the bookm
 
 *This is what the bookmark's "edit" page looks like before any changes.*
 
-{% include image.html file="reading_bookmarklet_screenshot_before_edit.png" alt="alt" max-width=400 %}
+{% include image.html file="reading_bookmarklet_screenshot_before_edit.png" alt="bookmark before editing" max-width=600 %}
 
 
 *This is what it looks like after it has been edited to function as a bookmarklet.*
 
-{% include image.html file="reading_bookmarklet_screenshot_after_edit.png" alt="alt" max-width=400 %}
+{% include image.html file="reading_bookmarklet_screenshot_after_edit.png" alt="bookmarklet after editing" max-width=600 %}
 
 
 You've created a bookmarklet! You can test it on your phone in the same way described for desktop.
