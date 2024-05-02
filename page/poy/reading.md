@@ -1,6 +1,6 @@
 ---
 layout: default
-title: reading
+title: Reading
 parent: Paper of the Year
 nav_order: 4
 has_toc: false
@@ -23,19 +23,52 @@ Reading is an important part of graduate school. Below are some tips and tools t
 
 
 ## MSU Proxy Bookmarklet
-Accessing journal articles away from campus is not convenient. MSU offers [resources](https://libguides.lib.msu.edu/c.php?g=917727&p=6614013) for remote access, but these tools are not super easy if you are trying to follow a link to new journal article on your phone. Below are instructions to create a [bookmarklet](https://en.wikipedia.org/wiki/Bookmarklet) that converts the current URL to the MSU proxy URL (access to campus web resources from anywhere). I'm providing instructions and screenshots for how to do this on a phone because that is where this tool has been the most useful for me. The same bookmarklet can be installed and used in basically the same way in any browser on any device (I use this tool regularly on my laptop).
+MSU offers [resources](https://libguides.lib.msu.edu/c.php?g=917727&p=6614013) to make remote journal access possible, but not neccessarily convenient. Below are instructions to create a [bookmarklet](https://en.wikipedia.org/wiki/Bookmarklet) that converts the current URL to the MSU proxy URL (access to campus web resources from anywhere). 
 {: .text-justify }
 
-[msuEZproxyTEST](javascript:void(location.href='https://ezproxy.msu.edu/login?url=%27+location.href);)
+Taking down barriers to reading scientific literature is important to me. If you try to use the tools below and run into problems, please let me know via email. I will strive to help you solve the issue and revise the instructions accordingly.
 {: .text-justify }
 
+
+### Desktop
+
+Click and drag the link below into your bookmarks (tested Chrome & Safari on Mac)
+
+[msuEZproxy](javascript:void(location.href='https://ezproxy.msu.edu/login?url=%27+location.href);)
+{: .text-justify }
+
+When you are away from campus, navigate to a journal article that is stuck behind a firewall. While you're still on the article's website, click the msuEZproxy bookmarklet. The bookmarklet will modify the URL of the current website. For example, using the bookmarklet at... 
+
+https://onlinelibrary.wiley.com/doi/10.1002/anie.202402541
+converts the URL to
+https://onlinelibrary-wiley-com.proxy2.cl.msu.edu/doi/10.1002/anie.202402541
+
+### Mobile
+
+I have not found a way to simply drag [msuEZproxy](javascript:void(location.href='https://ezproxy.msu.edu/login?url=%27+location.href);) into my bookmarks in Chrome or Safari on iPhone. Depending on your setup, your desktop bookmarks may automatically sync to your browser on your phone. If that is the case, then you are all set.
+{: .text-justify }
+
+If your bookmarks do not sync to your phone automatically, you can add the bookmarklet manually following the instructions below.
+{: .text-justify }
 
 - navigate to any webpage (using google.com in this example)
-- bookmark the page
+- bookmark the webpage
+- edit the bookmark (in Chrome on iphone this requires "..." icon > Bookmarks > Edit)
 - edit the bookmark's name (here I'm naming it msuEZproxy, the name you choose doesn't impact function)
 - edit the address of the bookmark to read `javascript:void(location.href='https://ezproxy.msu.edu/login?url=%27+location.href);`
 
-You've created a bookmarklet!
+*This is what the bookmark's "edit" page looks like before any changes.*
+{: .text-justify }
+{% include image.html file="reading_bookmarklet_screenshot_before_edit.png" alt="alt" max-width=400 %}
+
+
+*This is what it looks like after it has been edited to function as a bookmarklet.*
+{: .text-justify }
+*{% include image.html file="reading_bookmarklet_screenshot_after_edit.png" alt="alt" max-width=400 %}*
+
+
+You've created a bookmarklet! You can test it on your phone in the same way described for desktop.
+
 
 ## Feedly
 To Do
