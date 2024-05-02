@@ -58,13 +58,13 @@ If your bookmarks do not sync to your phone automatically, you can add the bookm
 - edit the address of the bookmark to read `javascript:void(location.href='https://ezproxy.msu.edu/login?url=%27+location.href);`
 
 *This is what the bookmark's "edit" page looks like before any changes.*
-{: .text-justify }
+
 {% include image.html file="reading_bookmarklet_screenshot_before_edit.png" alt="alt" max-width=400 %}
 
 
 *This is what it looks like after it has been edited to function as a bookmarklet.*
-{: .text-justify }
-*{% include image.html file="reading_bookmarklet_screenshot_after_edit.png" alt="alt" max-width=400 %}*
+
+{% include image.html file="reading_bookmarklet_screenshot_after_edit.png" alt="alt" max-width=400 %}
 
 
 You've created a bookmarklet! You can test it on your phone in the same way described for desktop.
