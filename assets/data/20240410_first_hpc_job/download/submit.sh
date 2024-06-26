@@ -5,7 +5,7 @@
 mkdir -p outputs
 gaussian=$(cat <<EOF
 #!/bin/bash
-                       
+
 #SBATCH -J @NAME		    # Job name
 #SBATCH -n 1 -c @NPROC	    # cpus requested *less cpus and time = faster job submission*
 #SBATCH --nodes=1	    # nodes requested
@@ -13,23 +13,23 @@ gaussian=$(cat <<EOF
 #SBATCH --time=@HOURS:00:00 	    # time requested HHH:MM:SS *quick limit 4h* *total limit 168h*
 #SBATCH --mail-type=@MAIL  # BEGIN and FAIL are also useful values
 #SBATCH --mail-user=@USERNAME@msu.edu
-            
+
 ulimit -c 0
-module load Gaussian/g16
-            
+module load Gaussian/16.C.01-AVX2
+
 mkdir \$SCRATCH/@NAME
 export GAUSS_SCRDIR=\$SCRATCH/@NAME
-            
+
 g16 < @NAME.gjf > @NAME.log
-            
+
 rm -rf \$SCRATCH/@NAME
 rm fort.7
 rm *.out
-            
+
 mv @NAME.log "../outputs/"
-            
+
 EOF
-)   
+)
 
 orca=$(cat <<EOF
 #!/bin/bash
@@ -49,15 +49,15 @@ export LD_LIBRARY_PATH=/users/home/user/openmpi/lib:\$LD_LIBRARY_PATH
 # Here giving the path to the ORCA binaries and giving communication protocol
 
 #You can also load module here.
-module load GCC/10.3.0  OpenMPI/4.1.1 ORCA/5.0.4
-export orcadir=/opt/software/ORCA/5.0.4/bin/orca
+module load ORCA/5.0.4-gompi-2023a
+export orcadir=/opt/software-current/2023.06/x86_64/generic/software/ORCA/5.0.4-gompi-2023a/bin/orca
 export RSH_COMMAND="/usr/bin/ssh -x"
 export PATH=\$orcadir:\$PATH
 export LD_LIBRARY_PATH=\$orcadir:\$LD_LIBRARY_PATH
 
-# Creating local scratch folder for the user on the computing node. 
+# Creating local scratch folder for the user on the computing node.
 
-#Set the scratchlocation variable to the location of the local scratch, e.g. /scratch or /localscratch 
+#Set the scratchlocation variable to the location of the local scratch, e.g. /scratch or /localscratch
 export scratchlocation=\$SCRATCH
 if [ ! -d \$scratchlocation ]
 then
@@ -117,7 +117,7 @@ function write_input() {
 		mem=$(grep -m 1 %mem "$calc" | cut -d "=" -f 2 | sed s/GB// | awk '{print $1 + 2}')
 		cpus=$(grep -m 1 %nprocshared "$calc" | cut -d "=" -f 2 )
 	else
-		echo "File given to was not a .gjf or .inp file. 
+		echo "File given to was not a .gjf or .inp file.
 		This is a redundant check and shouldn't happen"
 	fi
 
@@ -136,7 +136,7 @@ if [ "$prompt" = true ]; then
 	if (( hours < 0 )) || (( hours > 168 )); then
 	echo "Invalid number of hours was given, it is now set to 4"
 		hours=4
-	fi  
+	fi
 fi
 }
 
@@ -181,8 +181,8 @@ function duplicate_input() {
 		fi
 }
 
-# This block processes flags for script '-p' gives time prompt '-t' allows 
-# setting defaults for each of those parameters respectively '-s' will save checkpoint and 
+# This block processes flags for script '-p' gives time prompt '-t' allows
+# setting defaults for each of those parameters respectively '-s' will save checkpoint and
 # other associated files and '-h' will prompt for help dialogue.
 prompt=false
 mail="END,TIME_LIMIT"
@@ -192,7 +192,7 @@ while getopts "hspc:t:" opt; do  # Add orca and Gaussian specific checkpoint fla
 	case $opt in
 		h)
 			help
-			exit 0 
+			exit 0
 			;;
 		s)
 			mail="NONE"
@@ -220,14 +220,14 @@ if [ "$#" -eq 0 ]; then
 	for calc in *.{gjf,inp}; do  # iterate over all Gaussian and Orca inputs in cwd
 		if [ -f "$calc" ]; then  # if these iterators exist, continue
 			base_name=${calc%.*}
-			extension=${calc##*.}	
-			
+			extension=${calc##*.}
+
 			if [ -d "$base_name" ]; then
 				duplicate_input
 			fi
 
-			mkdir -p "$base_name"	
-			
+			mkdir -p "$base_name"
+
 			prompt_inputs # funtion that handles the prompt flag from earlier
 
 			write_input
@@ -247,14 +247,14 @@ else
 	for calc in "$@"; do
 		if [ -f "$calc" ]; then  # if these iterators exist, continue
 			base_name=${calc%.*}
-			extension=${calc##*.}	
+			extension=${calc##*.}
 
 			if [ -d "$base_name" ]; then
 				duplicate_input
 			fi
 
-			mkdir -p "$base_name"	
-			
+			mkdir -p "$base_name"
+
 			prompt_inputs # funtion that handles the prompt flag from earlier
 
 			write_input
@@ -269,4 +269,3 @@ else
 		fi
 	done
 fi
-
