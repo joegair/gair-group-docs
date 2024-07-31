@@ -50,6 +50,7 @@ export LD_LIBRARY_PATH=/users/home/user/openmpi/lib:\$LD_LIBRARY_PATH
 
 #You can also load module here.
 module load ORCA/5.0.4-gompi-2023a
+module load xtb/6.6.1-gfbf-2023a
 export orcadir=/opt/software-current/2023.06/x86_64/generic/software/ORCA/5.0.4-gompi-2023a/bin/orca
 export RSH_COMMAND="/usr/bin/ssh -x"
 export PATH=\$orcadir:\$PATH
