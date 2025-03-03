@@ -15,7 +15,6 @@ This page describes how to setup ORCA to perform DFT calculations on your person
 {: .fs-6 .fw-300 .text-justify}
 
 ## Example Molecule: Acetone
-Below is an interactive 3D model of acetone (CH₃COCH₃), a common organic solvent used in many chemical reactions and calculations:
 
 {% include molecule-viewer.html id="acetone" pdb="{{ site.baseurl }}/assets/molecules/acetone.pdb" %}
 
