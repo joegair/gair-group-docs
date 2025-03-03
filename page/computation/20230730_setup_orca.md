@@ -14,16 +14,11 @@ permalink: /page/computation/setup.html
 This page describes how to setup ORCA to perform DFT calculations on your personal machine. Plus instructions on how to setup ChimeraX+SEQCROW to setup, run, and analyze DFT jobs from a GUI.
 {: .fs-6 .fw-300 .text-justify}
 
-## Example Molecule: Acetone
-
-{% include molecule-viewer.html id="acetone" pdb="{{ site.baseurl }}/assets/molecules/acetone.pdb" %}
-
 ## Table of contents
 {: .no_toc .text-delta }
 
 1. TOC
 {:toc}
-
 
 ## Local ORCA
 ORCA can be downloaded [here](https://orcaforum.kofo.mpg.de/index.php). You will need to register as a user before you can download. Note that ORCA is a command line program, you cannot open/run ORCA by clicking on the 'ORCA' file. The objective of the following tutorials is to interface ORCA with a graphical user interface, so that you can perform quantum chemical calculations before learning how to use command line programs.
@@ -32,16 +27,13 @@ ORCA can be downloaded [here](https://orcaforum.kofo.mpg.de/index.php). You will
 The official ORCA tutorials are found [here](https://www.orcasoftware.de/tutorials_orca/). For many first time users, the most challenging aspect of setting up ORCA is setting the path variables. Detailed instructions for setting path variables can be found [here](https://www.orcasoftware.de/tutorials_orca/first_steps/trouble_install.html#assigning-path-variables).
 {: .text-justify }
 
-
 An additional resource for setting up ORCA, that I found very useful, can be found [here](https://sites.google.com/site/orcainputlibrary/setting-up-orca).
 {: .text-justify }
-
 
 ## ChimeraX
 
 ChimeraX is a first-rate (and free) molecular visualization program that can be downloaded [here](https://www.cgl.ucsf.edu/chimerax/).
 {: .text-justify }
-
 
 ## SEQCROW
 
@@ -61,10 +53,7 @@ Once SEQCROW is installed you can find relevant tutorials in ChimeraX by navigat
 
 Additional info about SEQCOW usage can be found at the [SEQCROW wiki](https://github.com/QChASM/SEQCROW/wiki?)
 
-
 ## Optional
-
-
 
 ### Anaconda
 
@@ -80,13 +69,11 @@ Whenever working with molecular modelling locally or installing related packages
 
 You can create as many virtual environments as you want. Feel free to create new environments when testing new packages. Avoid installing new packages in your base environment.
 
-
 ### XTB
 
 [XTB](https://xtb-docs.readthedocs.io/en/latest/setup.html) (extended tight binding) is a progam for peforming semiempirical quantum mechanical calculations. It is very convenient for rapid geometry optimizations. XTB can be used as a standalone program, but I typically use XTB via ORCA or ChimeraX+SEQCROW
 
 To install XTB locally, activate the appropriate virtual environment and run
-
 
 ```
 conda config --add channels conda-forge
