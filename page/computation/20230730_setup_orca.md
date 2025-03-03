@@ -14,7 +14,10 @@ permalink: /page/computation/setup.html
 This page describes how to setup ORCA to perform DFT calculations on your personal machine. Plus instructions on how to setup ChimeraX+SEQCROW to setup, run, and analyze DFT jobs from a GUI.
 {: .fs-6 .fw-300 .text-justify}
 
+## Example Molecule: Acetone
+Below is an interactive 3D model of acetone (CH₃COCH₃), a common organic solvent used in many chemical reactions and calculations:
 
+{% include molecule-viewer.html id="acetone" pdb="/assets/molecules/acetone.pdb" %}
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -90,26 +93,3 @@ To install XTB locally, activate the appropriate virtual environment and run
 conda config --add channels conda-forge
 conda install xtb
 ```
-
-Confirm installation with `which xtb`, which will return the path to the xtb executable. For me the output is `/Users/joe/anaconda3/envs/molmodel1/bin/xtb`.
-
-To allow ORCA to use xtb, find the location where xtb was installed, go to that directory and copy the xtb file to the directory that holds the ORCA executables (`which ORCA` returns `/Applications/orca/orca`). Then rename the xtb file from `xtb` to `otool_xtb`. Now ORCA can use xtb on your local machine.
-
-### CREST
-
-[crest](https://crest-lab.github.io/crest-docs/) (Conformer–Rotamer Ensemble Sampling Tool) is a valuable tool for generating high-quality conformational ensembles from meta-dynamics simulations powered by semiempirical quantum chemical calculations. Crest jobs can be generated and submitted locally via a graphical user interface using ChimeraX+SEQCROW. To install crest locally, activate the appropriate virtual environment and run
-
-```
-conda config --add channels conda-forge
-conda install crest
-```
-
-Confirm installation with `which crest`. This should print the path to the crest executable, eg `/Users/joe/anaconda3/envs/molmodel1/bin/crest`.
-
-To use *crest* directly from SEQCROW, set the CREST executable in ChimeraX (see instructions in SEQCROW section above)
-
-
-
-
-
-

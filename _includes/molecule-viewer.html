@@ -1,0 +1,24 @@
+<!-- 3Dmol.js dependencies -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://3dmol.org/build/3Dmol-min.js"></script>
+
+<!-- Molecule viewer container -->
+<div class="molecule-viewer" style="width: 100%; height: 400px; position: relative;">
+    <div id="molecule-{{ include.id }}" style="width: 100%; height: 100%;"></div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        var viewer = $3Dmol.createViewer("molecule-{{ include.id }}", {
+            backgroundColor: 'white'
+        });
+        
+        // Load the molecule
+        $.get("{{ include.pdb }}", function(data) {
+            viewer.addModel(data, "pdb");
+            viewer.setStyle({}, {stick:{radius:0.15}, sphere:{scale:0.3}});
+            viewer.zoomTo();
+            viewer.render();
+        });
+    });
+</script> 
